@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#16204F">
+<meta name="robots" content="noindex,nofollow">
+<title>Como você escolhe sua faculdade? · Pesquisa</title>
+<meta name="description" content="Pesquisa rápida e anônima para quem está no 3º ano do ensino médio ou no cursinho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/simbolo_branco.png">
+<style>
+:root{
+  --navy:#1D2A61;--navy2:#16204F;--navy3:#26357A;--off:#F4F4F2;--mint:#7FB9A8;--soft:#AEB4D4;
+  --line:rgba(244,244,242,.16);--glass:rgba(244,244,242,.06);--glass2:rgba(244,244,242,.11);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Montserrat',system-ui,sans-serif;background:var(--navy2);color:var(--off);min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,textarea{font:inherit;color:inherit}
+em,.it{font-family:'Merriweather',Georgia,serif;font-style:italic;font-weight:300;color:var(--mint)}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:8px}
+
+/* ---------- fundo vivo ---------- */
+.bg{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none;background:radial-gradient(1200px 700px at 78% -10%,var(--navy3),transparent 60%),radial-gradient(900px 600px at -10% 110%,#1b2a6b,transparent 55%),var(--navy2)}
+.bg .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(244,244,242,.10) 1.2px,transparent 1.3px);background-size:34px 34px;mask-image:radial-gradient(circle at 70% 40%,#000 0,transparent 70%);-webkit-mask-image:radial-gradient(circle at 70% 40%,#000 0,transparent 70%)}
+.dm{position:absolute;border:1.5px solid rgba(127,185,168,.30);transform:rotate(45deg);transition:transform .9s var(--ease)}
+.dm.a{width:62vmin;height:62vmin;right:-18vmin;top:-14vmin;animation:spin 90s linear infinite}
+.dm.b{width:34vmin;height:34vmin;left:-8vmin;bottom:8vmin;border-color:rgba(244,244,242,.14);animation:spin 120s linear infinite reverse}
+.dm.c{width:14vmin;height:14vmin;right:12vmin;bottom:14vmin;background:rgba(127,185,168,.10);border-color:transparent;animation:float 9s ease-in-out infinite}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5}
+.blob.a{width:46vmin;height:46vmin;background:#2c3f9a;left:20vmin;top:6vmin;animation:float 14s ease-in-out infinite}
+.blob.b{width:34vmin;height:34vmin;background:rgba(127,185,168,.28);right:8vmin;bottom:-6vmin;animation:float 11s ease-in-out infinite reverse}
+@keyframes spin{to{transform:rotate(405deg)}}
+@keyframes float{50%{transform:translateY(-3vmin) rotate(45deg)}}
+.blob.a,.blob.b{animation-name:floatb}@keyframes floatb{50%{transform:translate(2vmin,-3vmin)}}
+
+/* ---------- casca ---------- */
+.app{position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr auto}
+.top{display:flex;align-items:center;gap:16px;padding:max(16px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) 12px max(20px,env(safe-area-inset-left))}
+.top img{height:38px;width:auto;display:block}
+.top .sec{margin-left:auto;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--soft);text-align:right}
+.bar{position:fixed;left:0;right:0;top:0;height:4px;background:rgba(244,244,242,.08);z-index:5}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mint),#b9ddd1);border-radius:0 4px 4px 0;box-shadow:0 0 18px rgba(127,185,168,.8);transition:width .8s var(--ease)}
+.rail{display:none}
+.main{display:grid;place-items:center;padding:8px max(20px,env(safe-area-inset-right)) 24px max(20px,env(safe-area-inset-left))}
+#stage{width:100%;max-width:860px;justify-self:center}#stage:focus{outline:none}
+.step{width:100%;animation:in .7s var(--ease) both}
+.step.back{animation-name:inb}
+@keyframes in{from{opacity:0;transform:translateY(26px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes inb{from{opacity:0;transform:translateY(-22px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--mint);margin-bottom:18px}
+.eyebrow::before{content:"";width:9px;height:9px;background:var(--mint);transform:rotate(45deg);flex:none}
+.eyebrow span{color:var(--soft);font-weight:600}
+h1.q{font-size:clamp(25px,4.1vw,46px);line-height:1.16;font-weight:800;letter-spacing:-.012em;text-wrap:balance}
+.hint{margin-top:14px;font-size:clamp(14px,1.6vw,17px);line-height:1.55;color:var(--soft);font-weight:400;max-width:62ch}
+.body{margin-top:clamp(22px,3.6vh,36px)}
+.err{min-height:22px;margin-top:14px;font-size:14px;font-weight:600;color:var(--off)}
+.err b{display:inline-block;background:rgba(244,244,242,.14);border:1px solid var(--line);padding:5px 12px;border-radius:99px;animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ---------- opções ---------- */
+.opts{display:grid;gap:10px}
+.opts.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr))}
+.opt{position:relative;display:flex;align-items:center;gap:14px;text-align:left;padding:15px 18px;border-radius:14px;background:var(--glass);border:1.5px solid var(--line);font-size:clamp(15px,1.7vw,18px);font-weight:500;line-height:1.35;transition:transform .25s var(--ease),background .25s,border-color .25s,box-shadow .25s;animation:rise .55s var(--ease) both;animation-delay:calc(var(--i,0)*45ms + 180ms)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.opt:hover{background:var(--glass2);transform:translateY(-2px);border-color:rgba(127,185,168,.6)}
+.opt .k{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:700;letter-spacing:.04em;border:1.5px solid rgba(244,244,242,.35);color:var(--soft);transition:.25s}
+.opt .lb{flex:1}
+.opt .ck{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(244,244,242,.3);display:grid;place-items:center;transition:.25s}
+.opt .ck svg{width:14px;height:14px;stroke:var(--navy);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .4s var(--ease) .05s}
+.opt.on{background:var(--mint);border-color:var(--mint);color:var(--navy);font-weight:700;box-shadow:0 10px 30px -10px rgba(127,185,168,.7);transform:translateY(-2px)}
+.opt.on .k{background:var(--navy);border-color:var(--navy);color:var(--off)}
+.opt.on .ck{background:var(--navy);border-color:var(--navy)}
+.opt.on .ck svg{stroke:var(--mint);stroke-dashoffset:0}
+.opt.multi .ck{border-radius:7px}
+.opt .rk{flex:none;width:34px;height:34px;border-radius:10px;border:1.5px dashed rgba(244,244,242,.35);display:grid;place-items:center;font-weight:800;font-size:16px;transition:.25s}
+.opt.on .rk{border-style:solid;background:var(--navy);border-color:var(--navy);color:var(--mint)}
+.other{margin-top:10px}
+.txt,.ta{width:100%;background:rgba(244,244,242,.08);border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;font-size:clamp(16px,1.8vw,19px);line-height:1.5;transition:border-color .25s,background .25s;resize:vertical}
+.txt:focus,.ta:focus{outline:none;border-color:var(--mint);background:rgba(244,244,242,.12)}
+.txt::placeholder,.ta::placeholder{color:rgba(174,180,212,.7)}
+.ta{min-height:130px}
+.cnt{margin-top:8px;font-size:12px;color:var(--soft);text-align:right;letter-spacing:.06em}
+.lab{display:block;margin:18px 0 8px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--soft)}
+.lab:first-child{margin-top:0}
+.fields{display:grid;gap:12px}
+.field{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center}
+.field b{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--glass2);font-weight:800;color:var(--mint)}
+
+/* ---------- escala ---------- */
+.scale{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:8px}
+.sc{aspect-ratio:1/1.05;border-radius:14px;background:var(--glass);border:1.5px solid var(--line);font-size:clamp(16px,2.4vw,24px);font-weight:700;display:grid;place-items:center;transition:.25s var(--ease);animation:rise .5s var(--ease) both;animation-delay:calc(var(--i)*35ms + 160ms)}
+.sc:hover{transform:translateY(-4px);background:var(--glass2);border-color:var(--mint)}
+.sc.on{background:var(--mint);color:var(--navy);border-color:var(--mint);transform:translateY(-6px) scale(1.06);box-shadow:0 14px 34px -10px rgba(127,185,168,.8)}
+.sc.low{opacity:.9}
+.ends{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:13px;color:var(--soft);font-weight:500}
+.ends span:last-child{text-align:right}
+@media (max-width:560px){.scale[style*="--n:11"]{grid-template-columns:repeat(6,1fr)}.sc{aspect-ratio:1/1}}
+
+/* ---------- grades ---------- */
+.grid{display:grid;gap:14px}
+.gr{background:var(--glass);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px 18px;animation:rise .55s var(--ease) both;animation-delay:calc(var(--i)*60ms + 180ms)}
+.gr.done{border-color:rgba(127,185,168,.55)}
+.gr p{font-size:clamp(15px,1.7vw,18px);font-weight:600;line-height:1.4;margin-bottom:12px}
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.chip{border-radius:11px;padding:11px 4px 9px;text-align:center;background:rgba(244,244,242,.07);border:1.5px solid var(--line);transition:.22s var(--ease);display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.chip:hover{background:var(--glass2);border-color:var(--mint);transform:translateY(-2px)}
+.chip b{font-size:17px;font-weight:800}
+.chip small{font-size:10.5px;line-height:1.2;color:var(--soft);font-weight:500;letter-spacing:.01em}
+.chip.on{background:var(--mint);border-color:var(--mint);color:var(--navy);transform:translateY(-3px);box-shadow:0 10px 24px -10px rgba(127,185,168,.8)}
+.chip.on small{color:var(--navy);font-weight:700}
+@media (max-width:620px){.chip small{display:none}.chip{padding:12px 2px}}
+.gends{display:none;justify-content:space-between;margin-top:8px;font-size:11.5px;color:var(--soft)}
+@media (max-width:620px){.gends{display:flex}}
+
+/* ---------- assoc ---------- */
+.as{background:var(--glass);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px 16px;animation:rise .55s var(--ease) both;animation-delay:calc(var(--i)*60ms + 180ms)}
+.as p{font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mint);margin-bottom:10px}
+.sug{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sug button{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:99px;border:1.5px solid var(--line);color:var(--soft);transition:.2s}
+.sug button:hover{border-color:var(--mint);color:var(--off)}
+
+/* ---------- telas especiais ---------- */
+.hero{max-width:900px}
+.hero h1{font-size:clamp(34px,6.6vw,72px);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.hero .lead{margin-top:22px;font-size:clamp(16px,2vw,21px);line-height:1.55;color:var(--soft);max-width:56ch}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{display:flex;align-items:center;gap:9px;padding:9px 16px;border-radius:99px;border:1.5px solid var(--line);background:var(--glass);font-size:14px;font-weight:600}
+.pill i{width:8px;height:8px;background:var(--mint);transform:rotate(45deg)}
+.consent ul{list-style:none;display:grid;gap:12px;margin-top:6px}
+.consent li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:clamp(15px,1.7vw,18px);line-height:1.5;color:var(--off);animation:rise .55s var(--ease) both;animation-delay:calc(var(--i)*70ms + 200ms)}
+.consent li::before{content:"";width:10px;height:10px;background:var(--mint);transform:rotate(45deg);margin-top:8px;justify-self:center}
+.consent a{color:var(--mint)}
+.fine{margin-top:20px;font-size:13px;color:var(--soft);line-height:1.6;max-width:70ch}
+.reveal{position:fixed;inset:0;z-index:4;display:grid;place-items:center;text-align:center;padding:30px;background:linear-gradient(180deg,rgba(22,32,79,.82),rgba(29,42,97,.94)),url(assets/students.jpg) center/cover;animation:fade .8s both}
+@keyframes fade{from{opacity:0}}
+.reveal .in{max-width:760px;animation:in .9s var(--ease) .2s both}
+.reveal img{height:clamp(110px,22vh,190px);width:auto;max-width:78%;margin-bottom:26px}
+.reveal h2{font-size:clamp(24px,4vw,44px);line-height:1.2;font-weight:800;text-wrap:balance}
+.reveal p{margin:16px auto 0;color:var(--soft);font-size:clamp(15px,1.8vw,19px);line-height:1.6;max-width:52ch}
+.reveal .go{margin-top:34px}
+.cardp{position:relative;overflow:hidden;border-radius:22px;border:1.5px solid rgba(127,185,168,.5);background:linear-gradient(135deg,rgba(244,244,242,.10),rgba(244,244,242,.04));padding:clamp(24px,4vw,44px);box-shadow:0 30px 80px -30px rgba(0,0,0,.35)}
+.cardp::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border:1.5px solid rgba(127,185,168,.35);transform:rotate(45deg)}
+.cardp small{display:block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--mint);margin-bottom:16px}
+.cardp h2{font-size:clamp(24px,4vw,40px);font-weight:800;line-height:1.15}
+.cardp p{margin-top:16px;font-size:clamp(17px,2.2vw,23px);line-height:1.6;font-weight:300;max-width:50ch;position:relative;z-index:1}
+.again{margin-bottom:20px}
+.again summary{cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mint);padding:8px 14px;border-radius:99px;border:1.5px solid rgba(127,185,168,.45);list-style:none}
+.again summary::-webkit-details-marker{display:none}
+.again p{margin-top:12px;padding:16px 18px;border-radius:14px;background:var(--glass);border-left:4px solid var(--mint);font-size:15px;line-height:1.6;color:var(--off)}
+.end{text-align:center;max-width:720px;margin:0 auto}
+.end .seal{width:104px;height:104px;margin:0 auto 28px;position:relative}
+.end .seal i{position:absolute;inset:14px;border:2px solid var(--mint);transform:rotate(45deg);animation:pop .8s var(--ease) both}
+.end .seal i:nth-child(2){inset:0;border-color:rgba(244,244,242,.25);animation-delay:.15s}
+.end .seal svg{position:absolute;inset:0;margin:auto;width:46px;height:46px;stroke:var(--mint);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:draw .7s var(--ease) .5s forwards}
+@keyframes pop{from{transform:rotate(0) scale(.2);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.end h1{font-size:clamp(30px,5.2vw,56px);line-height:1.1;font-weight:800}
+.end p{margin-top:18px;color:var(--soft);font-size:clamp(15px,1.9vw,19px);line-height:1.6}
+.share{margin-top:30px;padding:22px;border-radius:18px;background:var(--glass);border:1.5px solid var(--line);text-align:left}
+.share b{display:block;font-size:16px;margin-bottom:6px}
+.share span{display:block;font-size:14px;color:var(--soft);line-height:1.55}
+.share .btn{margin-top:16px}
+.spin{width:44px;height:44px;border:3px solid rgba(244,244,242,.2);border-top-color:var(--mint);border-radius:50%;animation:rot 1s linear infinite;margin:0 auto 22px}
+@keyframes rot{to{transform:rotate(360deg)}}
+.demo{position:fixed;left:50%;transform:translateX(-50%);bottom:84px;z-index:9;background:var(--off);color:var(--navy);font-size:12px;font-weight:700;letter-spacing:.06em;padding:7px 14px;border-radius:99px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+
+/* ---------- navegação ---------- */
+.nav{position:sticky;bottom:0;display:flex;align-items:center;gap:14px;padding:14px max(20px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));background:linear-gradient(180deg,transparent,rgba(22,32,79,.92) 40%);z-index:6}
+.nav .sp{flex:1}
+.nav .kb{font-size:12px;color:var(--soft);letter-spacing:.06em;display:none}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 28px;border-radius:99px;font-weight:700;font-size:16px;letter-spacing:.02em;transition:transform .25s var(--ease),box-shadow .25s,background .25s,opacity .25s}
+.btn.pri{background:var(--mint);color:var(--navy);box-shadow:0 14px 34px -12px rgba(127,185,168,.85)}
+.btn.pri:hover:not(:disabled){transform:translateY(-2px) scale(1.02);box-shadow:0 18px 40px -10px rgba(127,185,168,.95)}
+.btn.pri:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.btn.pri svg{width:18px;height:18px;stroke:var(--navy);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.btn.pri:hover:not(:disabled) svg{transform:translateX(4px)}
+.btn.gh{border:1.5px solid var(--line);color:var(--soft);padding:13px 22px;font-size:14px}
+.btn.gh:hover{color:var(--off);border-color:var(--soft)}
+.btn[hidden],.kb[hidden]{display:none!important}
+.bp{position:relative;z-index:1}
+
+@media (min-width:1040px){
+  .app{grid-template-columns:260px minmax(0,1fr)}
+  .top{grid-column:1/-1}
+  .rail{display:block;grid-row:2/4;padding:30px 0 30px max(28px,env(safe-area-inset-left))}
+  .rail ol{list-style:none;position:relative;display:grid;gap:4px}
+  .rail ol::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:1.5px;background:var(--line)}
+  .rail li{position:relative;display:flex;align-items:center;gap:16px;padding:9px 0;font-size:13px;font-weight:600;color:rgba(174,180,212,.55);letter-spacing:.03em;transition:color .4s}
+  .rail li i{position:relative;width:17px;height:17px;border:1.5px solid rgba(174,180,212,.5);background:var(--navy2);transform:rotate(45deg) scale(.72);transition:.4s var(--ease);flex:none}
+  .rail li.done{color:var(--soft)}.rail li.done i{background:var(--mint);border-color:var(--mint)}
+  .rail li.cur{color:var(--off);font-weight:800}.rail li.cur i{background:var(--navy2);border-color:var(--mint);transform:rotate(45deg) scale(1);box-shadow:0 0 0 5px rgba(127,185,168,.18)}
+  .nav{grid-column:2}
+  .nav .kb{display:block}
+  .main{grid-column:2;padding-right:60px}
+  .top .sec{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}}
+.bits{position:fixed;inset:0;pointer-events:none;z-index:8;overflow:hidden}
+.bit{position:absolute;width:12px;height:12px;background:var(--mint);transform:rotate(45deg);animation:bit 1.6s cubic-bezier(.2,.7,.3,1) forwards;opacity:0}
+.bit:nth-child(3n){background:var(--off);width:8px;height:8px}
+@keyframes bit{0%{opacity:1;transform:translate(0,0) rotate(45deg)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(405deg)}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="dots"></div><div class="blob a"></div><div class="blob b"></div><div class="dm a"></div><div class="dm b"></div><div class="dm c"></div></div>
+<div class="bar" aria-hidden="true"><i id="bar"></i></div>
+<div class="app">
+  <header class="top"><img src="assets/simbolo_branco.png" alt="" width="21" height="38"><div class="sec" id="secTop"></div></header>
+  <aside class="rail" aria-label="Etapas da pesquisa"><ol id="rail"></ol></aside>
+  <main class="main"><div id="stage" tabindex="-1"></div></main>
+  <footer class="nav" id="nav">
+    <button class="btn gh" id="bBack" type="button" hidden>Voltar</button>
+    <span class="sp"></span>
+    <span class="kb" id="kb">ou pressione Enter ↵</span>
+    <button class="btn pri" id="bNext" type="button">Continuar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </footer>
+</div>
+<div class="bits" id="bits" aria-hidden="true"></div>
+<script src="config.js"></script>
+<script>
+(function(){
+'use strict';
+var CFG=window.PESQUISA_CONFIG||{};
+var QS=[{"k": "screen", "sec": "Triagem", "text": "Abertura: texto de apresentação e aviso de privacidade (ver página final). Pesquisa anônima. Nenhum nome, e-mail, telefone ou nome da escola é coletado."}, {"k": "single", "id": "sit", "code": "M1", "sec": "Triagem", "t": "Qual é a sua situação hoje?", "o": ["Estou no 3º ano do ensino médio", "Faço cursinho pré-vestibular", "Outra situação (encerrar com agradecimento)"], "other": false, "rand": false}, {"k": "single", "id": "age", "code": "M2", "sec": "Triagem", "t": "Qual é a sua idade?", "o": ["16 anos ou menos", "17 anos", "18 anos", "19 anos ou mais"], "other": false, "rand": false}, {"k": "single", "id": "int", "code": "M3", "sec": "Triagem", "t": "Você pretende cursar Direito?", "o": ["Sim, o Direito é a minha primeira opção", "Estou entre o Direito e outro curso", "Ainda não sei, mas o Direito está entre as ideias", "Não pretendo cursar Direito"], "other": false, "rand": false}, {"k": "open", "id": "why_no", "code": "M4", "sec": "Triagem", "t": "O que te levou a não escolher o Direito? E qual curso te atrai mais?", "lines": 2}, {"k": "open", "id": "open", "code": "M5", "sec": "Como você escolhe", "t": "Quando pensa em escolher uma faculdade de Direito, o que é mais importante para você?", "lines": 3}, {"k": "rank", "id": "rank", "code": "M6", "sec": "Como você escolhe", "t": "Entre os fatores abaixo, quais 3 mais pesam na sua escolha da faculdade?", "o": ["Dimensão internacional e intercâmbio", "Negócios e tecnologia na formação", "Reputação e prestígio da marca", "Tradição e história da instituição", "Corpo docente", "Grade curricular e projeto pedagógico", "Mensalidade e condições de pagamento", "Bolsa ou desconto", "Localização e infraestrutura", "Indicação de familiares e conhecidos", "Preparação para a OAB e concursos", "Networking e empregabilidade"], "hint": "Indique o 1º, o 2º e o 3º mais importantes. Os demais ficam em branco.", "rand": true}, {"k": "single", "id": "origin", "code": "M7", "sec": "Como você escolhe", "t": "De onde veio o seu interesse por Direito?", "o": ["Por conta própria", "Por influência da família", "Por um professor ou pela escola", "Por série, filme ou conteúdo na internet", "Por uma situação que vivi ou presenciei", "Por indicação de um profissional da área"], "other": true, "rand": true}, {"k": "multi", "id": "fwho", "code": "M8", "sec": "Família e tradição", "t": "Quem participa da decisão sobre onde estudar?", "o": ["Eu decido sozinho(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a) da escola", "Profissional ou estudante de Direito que eu conheço", "Conteúdos e influenciadores na internet"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "single", "id": "fmost", "code": "M9", "sec": "Família e tradição", "t": "E quem tem a maior influência na decisão?", "o": ["Eu mesmo(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a)", "Profissional ou estudante de Direito", "Conteúdos e influenciadores", "Outro"], "other": false, "rand": false}, {"k": "single", "id": "fweight", "code": "M10", "sec": "Família e tradição", "t": "Quanto a opinião da sua família pesa na escolha da faculdade?", "o": ["Nenhum peso", "Pouco peso", "Peso médio", "Muito peso", "É decisiva"], "other": false, "rand": false}, {"k": "single", "id": "flaw", "code": "M11", "sec": "Família e tradição", "t": "Existem profissionais do Direito na sua família (advogado, juiz, promotor, delegado, servidor jurídico)?", "o": ["Sim, pai ou mãe", "Sim, outro familiar próximo (avós, tios, irmãos)", "Apenas familiares distantes ou amigos próximos da família", "Ninguém"], "other": false, "rand": false}, {"k": "grid", "id": "flike", "code": "M12", "sec": "Família e tradição", "t": "Quanto você concorda com cada frase?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Estou escolhendo Direito principalmente por vontade própria.", "Na minha família, estudar Direito é uma tradição.", "Minha família prefere uma faculdade mais tradicional e conhecida.", "Minha família tem dúvidas sobre uma faculdade com proposta internacional e de tecnologia.", "Eu teria de convencer minha família a aceitar uma faculdade menos conhecida."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "fsaid", "code": "M13", "sec": "Família e tradição", "t": "O que sua família disse ou perguntou quando você falou das faculdades que estava considerando?", "lines": 2}, {"k": "single", "id": "final", "code": "M14", "sec": "Família e tradição", "t": "Quem vai tomar a decisão final sobre a faculdade?", "o": ["Eu", "Eu e minha família, juntos", "Principalmente minha família"], "other": false, "rand": false}, {"k": "single", "id": "payer", "code": "M15", "sec": "Família e tradição", "t": "Quem deve pagar a mensalidade?", "o": ["Minha família, integralmente", "Minha família, com bolsa ou desconto", "Eu, com meu trabalho ou financiamento", "Ainda não sei"], "other": false, "rand": false}, {"k": "open", "id": "top", "code": "M16", "sec": "Marcas e conhecimento", "t": "Quais faculdades de Direito vêm à sua cabeça? Cite até 3.", "lines": 1}, {"k": "multi", "id": "aided", "code": "M17", "sec": "Marcas e conhecimento", "t": "Quais destas faculdades você conhece, pelo menos de nome?", "o": ["Lista de faculdades de Direito concorrentes da região, em ordem aleatória (a validar com a SKEMA), incluindo a SKEMA", "Nenhuma delas"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "grid", "id": "assoc", "code": "M18", "sec": "Marcas e conhecimento", "t": "Que faculdade você associa a cada característica?", "rand": false, "rows": ["Dimensão internacional", "Negócios e tecnologia", "Preparação para a OAB", "Tradição", "Networking e empregabilidade", "Melhor custo-benefício"], "cols": ["Resposta aberta: escreva o nome da faculdade ou “nenhuma”"]}, {"k": "multi", "id": "chan", "code": "M19", "sec": "Marcas e conhecimento", "t": "Onde você pesquisa faculdades?", "o": ["Google", "Instagram", "TikTok", "YouTube", "Sites de guias e rankings", "Conversa com professores ou orientador(a)", "Conversa com a família", "Feiras e eventos de faculdades", "Podcasts"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "screen", "sec": "Marcas e conhecimento", "text": "Tela de revelação (exibir antes do próximo bloco): “Esta pesquisa é feita pela SKEMA Consultoria Júnior, a pedido da SKEMA Business School. A partir daqui, algumas perguntas falam da SKEMA.” Mantém a lembrança de marca limpa e cumpre a exigência de informar o controlador dos dados."}, {"k": "single", "id": "sk", "code": "M20", "sec": "Marcas e conhecimento", "t": "O que você sabe sobre a SKEMA?", "o": ["Nunca ouvi falar", "Já ouvi o nome", "Sei que ela oferece Direito", "Conheço a proposta do curso", "Já visitei ou conversei com alguém"], "other": false, "rand": false}, {"k": "card", "sec": "Proposta de valor", "title": "Cartão da proposta (mesmo texto nos questionários dos públicos externos)", "text": "Curso de Direito da SKEMA Business School. Formação jurídica integrada a negócios e tecnologia, com vivência internacional e possibilidade de mobilidade entre países, em uma escola de posicionamento global. [Texto final a validar com a SKEMA: usa apenas os diferenciais descritos no contrato.]"}, {"k": "scale", "id": "catt", "code": "M21", "sec": "Proposta de valor", "t": "No geral, quão atraente é essa proposta para você?", "lo": 1, "hi": 5, "a": "Nada atraente", "b": "Muito atraente"}, {"k": "grid", "id": "ccrd", "code": "M22", "sec": "Proposta de valor", "t": "Quanto você concorda com cada frase sobre essa proposta?", "rand": false, "rows": ["Eu entendi com clareza o que o curso oferece.", "Essa proposta é relevante para a carreira que eu quero.", "Esse curso parece diferente das outras faculdades de Direito."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "cplus", "code": "M23", "sec": "Proposta de valor", "t": "O que mais chamou a sua atenção na proposta? E o que menos?", "lines": 3}, {"k": "open", "id": "m1", "code": "M24", "sec": "Proposta de valor", "t": "Se você fosse estudar Direito, o que te levaria a estudar na SKEMA?", "lines": 3}, {"k": "scale", "id": "chance", "code": "M25", "sec": "Proposta de valor", "t": "Qual a chance de você considerar a SKEMA para estudar Direito?", "lo": 0, "hi": 10, "a": "Nenhuma", "b": "Certamente consideraria"}, {"k": "single", "id": "fear", "code": "M26", "sec": "Proposta de valor", "t": "Qual é o seu maior receio ao escolher uma faculdade de Direito?", "o": ["O custo da mensalidade", "Escolher uma faculdade pouco tradicional", "Não passar na OAB", "Dificuldade de conseguir emprego na minha região", "A distância de casa", "O nome da faculdade não ser conhecido", "O ensino se afastar do Direito clássico"], "other": true, "rand": true}, {"k": "grid", "id": "kfmt", "code": "M27", "sec": "Canais e conteúdo", "t": "Quanto cada formato de conteúdo despertaria o seu interesse em uma faculdade de Direito?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Podcast com advogados, juízes e profissionais da área", "Revista ou newsletter sobre carreira jurídica e mercado", "Perfil no Instagram com a rotina de alunos e egressos", "Vídeos curtos de professores explicando casos reais", "Eventos e palestras na escola ou no cursinho", "Conversas diretas com alunos e egressos"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "single", "id": "faixa", "code": "M28", "sec": "Preço e apoio financeiro", "t": "Qual faixa de mensalidade a sua família considera possível para uma faculdade de Direito?", "o": ["Até R$ 1.500", "De R$ 1.501 a R$ 2.500", "De R$ 2.501 a R$ 3.500", "De R$ 3.501 a R$ 4.500", "De R$ 4.501 a R$ 6.000", "Acima de R$ 6.000", "Não sei"], "other": false, "rand": false}, {"k": "single", "id": "qual", "code": "M29", "sec": "Preço e apoio financeiro", "t": "Para você, uma faculdade de mensalidade mais alta é, em geral:", "o": ["Sinal de mais qualidade", "Depende do que ela oferece", "Não muda a minha percepção", "Sinal de que não cabe no meu orçamento"], "other": false, "rand": false}, {"k": "grid", "id": "fmt", "code": "M30", "sec": "Preço e apoio financeiro", "t": "Quão atraente seria cada formato de apoio financeiro?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Desconto fixo na mensalidade", "Bolsa por desempenho acadêmico, mantida pelas notas", "Bolsa em troca de monitoria (aluno monitor remunerado em bolsa)", "Bolsa para projeto de pesquisa ou extensão", "Parcelamento ou financiamento próprio da faculdade"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "single", "id": "reg", "code": "M31", "sec": "Perfil", "t": "Onde você mora?", "o": ["Belo Horizonte", "Região metropolitana de Belo Horizonte", "Interior de Minas Gerais", "Outro estado"], "hint": "Região, nunca endereço.", "other": false, "rand": false}, {"k": "single", "id": "school", "code": "M32", "sec": "Perfil", "t": "Que tipo de escola você cursa ou cursou?", "o": ["Pública", "Privada", "Privada com bolsa", "Cursinho"], "other": false, "rand": false}];
+var Q={};QS.forEach(function(q){if(q.id)Q[q.id]=q;});
+var FAC=CFG.FACULDADES||[];
+var P=new URLSearchParams(location.search);
+var DEMO=P.has('demo')||!CFG.SUPABASE_URL||/SEU-PROJETO/.test(CFG.SUPABASE_URL);
+var COLETOR=(P.get('c')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40)||null;
+var CARD=CFG.CARTAO_TEXTO||'';
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- util ---------- */
+function h(t,a){var e=document.createElement(t);a=a||{};for(var k in a){if(k==='class')e.className=a[k];else if(k==='text')e.textContent=a[k];else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),a[k]);else e.setAttribute(k,a[k]);}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;e.appendChild(typeof c==='string'?document.createTextNode(c):c);}return e;}
+function $(id){return document.getElementById(id)}
+function clean(s){return String(s).replace(/\s*\((encerrar|exibir)[^)]*\)/i,'').trim()}
+function fixed(o){return /^(Outro|Outra|Nenhum|Nenhuma|Não sei|Ainda não sei|Não conheço)/i.test(o)}
+function isOther(o){return /^Outr[oa]$/i.test(o)}
+function excl(o){return /^(Nenhum|Nenhuma)/i.test(o)}
+function seedRand(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+var rnd=seedRand((Math.random()*1e9)|0);
+function shuffle(a){var r=a.slice(),i,j,t;for(i=r.length-1;i>0;i--){j=Math.floor(rnd()*(i+1));t=r[i];r[i]=r[j];r[j]=t}return r}
+function vib(){try{if(navigator.vibrate)navigator.vibrate(8)}catch(e){}}
+var CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>';
+var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+/* ---------- estado ---------- */
+var A={};              // respostas
+var hist=[];           // pilha de passos visitados
+var cur=null;          // passo atual
+var t0=null;
+var token=0;
+var stable={};         // opções embaralhadas por pergunta (estáveis na sessão)
+
+/* ---------- passos ---------- */
+function ix(id,a){var q=Q[id],v=a[id];if(v==null)return -1;return optionsOf(q,a,true).indexOf(v)}
+function optionsOf(q,a,raw){
+  if(q.id==='sit'||q.id==='age'||q.id==='int')return q.o.map(clean);
+  if(q.id==='aided'){var l=FAC.slice();var o=raw?l:(stable.aided=stable.aided||shuffle(l));return o.concat(['Nenhuma delas','Outra']);}
+  if(q.id==='fmost')return mostOptions(a);
+  var o=q.o.map(clean);
+  if(q.other&&o.indexOf('Outro')<0&&o.indexOf('Outra')<0)o=o.concat(['Outro']);
+  if(q.rand&&!raw){if(!stable[q.id]){var f=o.filter(function(x){return!fixed(x)}),e=o.filter(fixed);stable[q.id]=shuffle(f).concat(e);}return stable[q.id];}
+  return o;
+}
+var WHO_MAP=null;
+function mostOptions(a){
+  var who=a.fwho||[],mo=Q.fmost.o.map(clean),wo=Q.fwho.o.map(clean),out=[];
+  who.forEach(function(w){var i=wo.indexOf(w);if(i===0)return;if(i>0&&mo[i])out.push(mo[i]);else if(isOther(w))out.push('Outro');});
+  return out;
+}
+function isMinor(a){var v=a.age;return v==='16 anos ou menos'||v==='17 anos'}
+var STEPS=[
+ {id:'intro',type:'intro',sec:'Início'},
+ {id:'consent',type:'consent',sec:'Início'},
+ {q:'sit'},{q:'age'},
+ {id:'auth',type:'auth',sec:'Triagem',show:function(a){return isMinor(a)}},
+ {q:'int'},
+ {q:'why_no',show:function(a){return ix('int',a)===3}},
+ {q:'open'},{q:'rank'},{q:'origin'},
+ {q:'fwho'},{q:'fmost',show:function(a){return mostOptions(a).length>0}},{q:'fweight'},{q:'flaw'},{q:'flike'},{q:'fsaid'},{q:'final'},{q:'payer'},
+ {q:'top'},{q:'aided'},{q:'assoc'},{q:'chan'},
+ {id:'reveal',type:'reveal',sec:'Marcas e conhecimento'},
+ {q:'sk'},
+ {id:'card',type:'card',sec:'Proposta de valor'},
+ {q:'catt'},{q:'ccrd'},{q:'cplus'},{q:'m1'},{q:'chance'},{q:'fear'},
+ {q:'kfmt'},{q:'faixa'},{q:'qual'},{q:'fmt'},{q:'reg'},{q:'school'}
+];
+STEPS.forEach(function(s,i){s.n=i;if(s.q){var q=Q[s.q];s.id=s.q;s.sec=q.sec;s.type=q.id==='top'?'top3':q.id==='assoc'?'assoc':q.id==='cplus'?'open2':q.k;}});
+var NOCOUNT={intro:1,consent:1,reveal:1,card:1,auth:1};
+function visible(a){return STEPS.filter(function(s){
+  if(s.id==='why_no')return ix('int',a)===3;
+  if(s.id==='auth')return a.age?isMinor(a):false;
+  if(s.id==='fmost')return a.fwho?mostOptions(a).length>0:true;
+  return true;})}
+function nextOf(s){
+  for(var i=s.n+1;i<STEPS.length;i++){var t=STEPS[i];if(!t.show||t.show(A))return t;delete A[t.id];delete A[t.id+'_outro'];}return null;
+}
+
+/* ---------- navegação ---------- */
+var stage=$('stage'),bNext=$('bNext'),bBack=$('bBack'),kb=$('kb');
+var secs=[];STEPS.forEach(function(s){if(s.sec!=='Início'&&secs.indexOf(s.sec)<0)secs.push(s.sec)});
+var SHORT={'Triagem':'Triagem','Como você escolhe':'Como você escolhe','Família e tradição':'Família','Marcas e conhecimento':'Marcas','Proposta de valor':'Proposta','Canais e conteúdo':'Canais','Preço e apoio financeiro':'Preço','Perfil':'Perfil'};
+var rail=$('rail');secs.forEach(function(s){rail.appendChild(h('li',{'data-s':s},h('i'),SHORT[s]||s))});
+function setRail(sec){var on=false,items=[].slice.call(rail.children);var idx=secs.indexOf(sec);items.forEach(function(li,i){li.className=idx<0?'':(i<idx?'done':i===idx?'cur':'')});$('secTop').textContent=idx<0?'':(SHORT[sec]||sec)}
+function setBar(){var v=visible(A),n=v.length,i=cur?v.map(function(s){return s.id}).indexOf(cur.id):0;if(i<0)i=0;$('bar').style.width=Math.max(3,Math.round(i/Math.max(1,n-1)*100))+'%'}
+function qnum(s){var v=visible(A).filter(function(x){return!NOCOUNT[x.id]});var i=v.map(function(x){return x.id}).indexOf(s.id);return [i+1,v.length]}
+
+function go(s,back){
+  token++;cur=s;
+  if(hist[hist.length-1]!==s.id&&!back)hist.push(s.id);
+  stage.innerHTML='';
+  var el=render(s);if(back)el.classList.add('back');
+  stage.appendChild(el);
+  setRail(s.sec);setBar();
+  bBack.hidden=!(hist.length>1&&s.id!=='intro'&&s.id!=='reveal'&&s.id!=='consent');
+  window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+  try{stage.focus({preventScroll:true})}catch(e){}
+}
+function next(){
+  if(!cur)return;
+  var v=validate(cur);if(v!==true){showErr(v);return}
+  if(cur.id==='consent'&&!t0)t0=Date.now();
+  if(cur.id==='sit'&&ix('sit',A)===2)return finish('fora_do_publico');
+  if(cur.id==='auth'&&A.auth==='Ainda não tenho')return finish('sem_autorizacao');
+  if(cur.id==='why_no')return finish('nao_pretende_direito');
+  var n=nextOf(cur);if(!n)return finish('completo');go(n);
+}
+function back(){
+  if(hist.length<2)return;hist.pop();var id=hist[hist.length-1];
+  var s=STEPS.filter(function(x){return x.id===id})[0];if(s.id==='reveal'||s.id==='card'&&false){}
+  // pula tela de revelação ao voltar
+  if(s.id==='reveal'){hist.pop();s=STEPS.filter(function(x){return x.id===hist[hist.length-1]})[0];}
+  go(s,true);
+}
+bNext.addEventListener('click',next);bBack.addEventListener('click',back);
+function showErr(m){var e=stage.querySelector('.err');if(e){e.innerHTML='';e.appendChild(h('b',{text:m}))}vib()}
+function setNext(label,enabled){bNext.firstChild.nodeValue=label+' ';bNext.disabled=enabled===false}
+
+/* ---------- validação ---------- */
+function validate(s){
+  var q=Q[s.id],t=s.type,v=A[s.id];
+  if(t==='consent')return A.consent?true:'Marque a opção para continuar.';
+  if(t==='auth')return A.auth?true:'Escolha uma opção para continuar.';
+  if(!q)return true;
+  if(t==='single')return v?true:'Escolha uma opção para continuar.';
+  if(t==='multi')return v&&v.length?true:'Marque pelo menos uma opção.';
+  if(t==='rank')return v&&v.length===3?true:'Escolha exatamente 3 fatores, em ordem de importância.';
+  if(t==='scale')return v!=null?true:'Escolha uma nota para continuar.';
+  if(t==='grid'){var rows=gridRows(q);var g=v||{};for(var i=0;i<rows.length;i++)if(!g[rows[i]])return 'Responda todas as linhas para continuar.';return true}
+  return true;
+}
+
+/* ---------- renderização ---------- */
+function head(s,title,hint){
+  var q=Q[s.id],nn=!NOCOUNT[s.id]&&q?qnum(s):null;
+  var ey=h('div',{class:'eyebrow'},(SHORT[s.sec]||s.sec),nn?h('span',{text:'· pergunta '+nn[0]+' de '+nn[1]}):null);
+  return [ey,h('h1',{class:'q',text:title}),hint?h('p',{class:'hint',text:hint}):null];
+}
+function wrap(s,parts,body){
+  var d=h('section',{class:'step t-'+s.type});
+  parts.forEach(function(p){if(p)d.appendChild(p)});
+  var b=h('div',{class:'body'});if(body)b.appendChild(body);d.appendChild(b);
+  d.appendChild(h('div',{class:'err',role:'alert','aria-live':'assertive'}));
+  return d;
+}
+function reread(){return h('details',{class:'again'},h('summary',{text:'Reler a proposta'}),h('p',{text:'Curso de Direito da SKEMA Business School. '+CARD}))}
+
+function render(s){
+  var t=s.type,q=Q[s.id],el;
+  kb.textContent='ou pressione Enter ↵';
+  setNext('Continuar',true);
+  if(t==='intro'){el=viewIntro(s)}
+  else if(t==='consent'){el=viewConsent(s)}
+  else if(t==='auth'){el=viewAuth(s)}
+  else if(t==='reveal'){el=viewReveal(s)}
+  else if(t==='card'){el=viewCard(s)}
+  else if(t==='single'){el=wrap(s,head(s,q.t,q.hint),wSingle(s,q))}
+  else if(t==='multi'){el=wrap(s,head(s,q.t,q.hint),wMulti(s,q))}
+  else if(t==='rank'){el=wrap(s,head(s,q.t,q.hint),wRank(s,q))}
+  else if(t==='scale'){el=wrap(s,head(s,q.t,q.hint),wScale(s,q))}
+  else if(t==='grid'){el=wrap(s,head(s,q.t,q.hint),wGrid(s,q))}
+  else if(t==='open'){el=wrap(s,head(s,q.t,q.hint),wOpen(s,q))}
+  else if(t==='top3'){el=wrap(s,head(s,q.t,'Escreva o nome das faculdades que vêm à sua cabeça, sem pesquisar. Pode deixar em branco.'),wTop(s,q))}
+  else if(t==='open2'){el=wrap(s,head(s,q.t,null),wOpen2(s,q))}
+  else if(t==='assoc'){el=wrap(s,head(s,q.t,'Escreva o nome da faculdade ou “nenhuma”. Pode pular as que não souber.'),wAssoc(s,q))}
+  return el;
+}
+
+function viewIntro(s){
+  var d=h('section',{class:'step hero'});
+  var ey=h('div',{class:'eyebrow'},'Pesquisa · 3º ano e cursinho');d.appendChild(ey);
+  var t=h('h1');t.appendChild(document.createTextNode('Como você '));t.appendChild(h('em',{text:'escolhe'}));t.appendChild(document.createTextNode(' a sua faculdade?'));d.appendChild(t);
+  d.appendChild(h('p',{class:'lead',text:'Uma pesquisa rápida para entender como estudantes como você decidem onde estudar. Aqui não existe resposta certa ou errada, só a sua opinião.'}));
+  d.appendChild(h('div',{class:'pills'},h('div',{class:'pill'},h('i'),'Cerca de 10 minutos'),h('div',{class:'pill'},h('i'),'100% anônima'),h('div',{class:'pill'},h('i'),'Feita pela SKEMA Consultoria Júnior')));
+  d.appendChild(h('div',{class:'err'}));
+  setNext('Começar',true);return d;
+}
+function viewConsent(s){
+  var d=h('section',{class:'step consent'});
+  d.appendChild(h('div',{class:'eyebrow'},'Antes de começar'));
+  d.appendChild(h('h1',{class:'q',text:'Combinado rápido'}));
+  var ul=h('ul',{class:'body'});
+  var li=[
+   'A pesquisa é anônima. Não pedimos nome, e-mail, telefone nem o nome da sua escola.',
+   'A participação é voluntária e você pode parar quando quiser. As respostas são analisadas em conjunto, nunca individualmente.',
+   'Se você tem menos de 18 anos, precisa da autorização de um responsável ou da sua escola.',
+   'Mais adiante, vamos contar para quem a pesquisa está sendo feita.'];
+  li.forEach(function(t,i){var l=h('li',{style:'--i:'+i});l.textContent=t;ul.appendChild(l)});
+  d.appendChild(ul);
+  var f=h('p',{class:'fine'});f.appendChild(document.createTextNode('O aviso de privacidade completo, com a identificação da controladora dos dados, está '));
+  var a=h('a',{href:CFG.AVISO_URL||'#',target:'_blank',rel:'noopener',text:'aqui'});f.appendChild(a);
+  f.appendChild(document.createTextNode('. Os dados são tratados conforme a LGPD (Lei nº 13.709/2018), só para esta pesquisa, e serão eliminados ao final do projeto. Dúvidas: '+(CFG.CONTATO||'')+'.'));d.appendChild(f);
+  var b=h('div',{class:'body'});var o=h('button',{type:'button',class:'opt'+(A.consent?' on':''),role:'checkbox','aria-checked':!!A.consent},h('span',{class:'ck',html:''}),h('span',{class:'lb',text:'Li e quero participar da pesquisa'}));
+  o.querySelector('.ck').innerHTML=CHECK;o.classList.add('multi');
+  o.addEventListener('click',function(){A.consent=!A.consent;o.classList.toggle('on',!!A.consent);o.setAttribute('aria-checked',!!A.consent);vib()});
+  b.appendChild(o);d.appendChild(b);d.appendChild(h('div',{class:'err',role:'alert'}));
+  setNext('Vamos lá',true);return d;
+}
+function viewAuth(s){
+  var d=wrap(s,[h('div',{class:'eyebrow'},'Triagem'),h('h1',{class:'q',text:'Você tem autorização de um responsável ou da sua escola para participar?'}),h('p',{class:'hint',text:'Como você tem menos de 18 anos, precisamos dessa confirmação. Nenhum dado seu é coletado.'})],null);
+  var b=d.querySelector('.body');var opts=h('div',{class:'opts'});
+  ['Sim, tenho','Ainda não tenho'].forEach(function(o,i){opts.appendChild(optBtn(o,i,A.auth===o,false,function(){A.auth=o;paint(opts,function(x){return x===o});scheduleNext(o==='Sim, tenho'?420:0)}))});
+  b.appendChild(opts);return d;
+}
+function viewReveal(s){
+  var d=h('section',{class:'reveal'});
+  d.appendChild(h('div',{class:'in'},h('img',{src:'assets/logo_full_branca.png',alt:'SKEMA Consultoria Jr.'}),
+    h('h2',{text:'Esta pesquisa é feita pela SKEMA Consultoria Júnior, a pedido da SKEMA Business School.'}),
+    h('p',{text:'A partir daqui, algumas perguntas falam da SKEMA. Continue respondendo com sinceridade: queremos a sua opinião de verdade.'})));
+  setNext('Continuar',true);return d;
+}
+function viewCard(s){
+  var d=h('section',{class:'step t-card'});
+  d.appendChild(h('div',{class:'eyebrow'},'Proposta de valor',h('span',{text:'· leia com calma'})));
+  var c=h('div',{class:'cardp'},h('small',{text:'Curso de Direito'}),h('h2',{text:'SKEMA Business School'}),h('p',{text:CARD}));
+  d.appendChild(c);
+  d.appendChild(h('p',{class:'hint',text:'Na próxima tela, vamos perguntar o que você achou. Você poderá reler o texto sempre que quiser.'}));
+  d.appendChild(h('div',{class:'err'}));
+  setNext('Li, vamos lá',true);return d;
+}
+
+function letter(i){return String.fromCharCode(65+i)}
+function optBtn(label,i,on,multi,fn,kind){
+  var b=h('button',{type:'button',class:'opt'+(on?' on':'')+(multi?' multi':''),role:multi?'checkbox':'radio','aria-checked':!!on,style:'--i:'+i,'data-v':label});
+  b.appendChild(h('span',{class:'k',text:letter(i)}));b.appendChild(h('span',{class:'lb',text:label}));
+  var ck=h('span',{class:'ck'});ck.innerHTML=CHECK;b.appendChild(ck);
+  b.addEventListener('click',function(){vib();fn(label,b)});return b;
+}
+function paint(box,test){[].forEach.call(box.querySelectorAll('.opt'),function(b){var on=test(b.getAttribute('data-v'));b.classList.toggle('on',on);b.setAttribute('aria-checked',on)})}
+var tm=null;
+function scheduleNext(ms){clearTimeout(tm);if(ms<=0)return;var tk=token;tm=setTimeout(function(){if(tk===token)next()},ms)}
+function otherBox(q,key){
+  var w=h('div',{class:'other'});var i=h('input',{class:'txt',type:'text',maxlength:'80',placeholder:'Escreva aqui',value:A[key]||'','aria-label':'Outro: especifique'});
+  i.addEventListener('input',function(){A[key]=i.value});w.appendChild(i);w.hidden=true;return w;
+}
+function wSingle(s,q){
+  var opts=optionsOf(q,A),box=h('div',{class:'opts'+(opts.length>6?' two':''),role:'radiogroup','aria-label':q.t});
+  if(A[q.id]&&opts.indexOf(A[q.id])<0)delete A[q.id];
+  var ok=q.id+'_outro',ob=otherBox(q,ok);
+  function sync(){ob.hidden=!isOther(A[q.id]||'');}
+  opts.forEach(function(o,i){box.appendChild(optBtn(o,i,A[q.id]===o,false,function(v){A[q.id]=v;paint(box,function(x){return x===v});sync();
+    if(isOther(v)){setTimeout(function(){ob.querySelector('input').focus()},60)}else{scheduleNext(q.id==='sit'||q.id==='int'?520:440)}}))});
+  var w=h('div');w.appendChild(box);w.appendChild(ob);sync();return w;
+}
+function wMulti(s,q){
+  var opts=optionsOf(q,A),box=h('div',{class:'opts'+(opts.length>6?' two':''),role:'group','aria-label':q.t});
+  var ok=q.id+'_outro',ob=otherBox(q,ok);A[q.id]=A[q.id]||[];
+  function sync(){ob.hidden=A[q.id].filter(isOther).length===0;}
+  opts.forEach(function(o,i){box.appendChild(optBtn(o,i,A[q.id].indexOf(o)>=0,true,function(v){
+    var a=A[q.id],k=a.indexOf(v);
+    if(k>=0)a.splice(k,1);else{if(excl(v))a.length=0;else a=a.filter(function(x){return!excl(x)});a.push(v);A[q.id]=a;}
+    paint(box,function(x){return A[q.id].indexOf(x)>=0});sync();
+    if(isOther(v)&&A[q.id].indexOf(v)>=0)setTimeout(function(){ob.querySelector('input').focus()},60);}))});
+  var w=h('div');w.appendChild(box);w.appendChild(ob);sync();return w;
+}
+function wRank(s,q){
+  var opts=optionsOf(q,A),box=h('div',{class:'opts two',role:'group','aria-label':q.t});A[q.id]=A[q.id]||[];
+  function paintR(){[].forEach.call(box.querySelectorAll('.opt'),function(b){var i=A[q.id].indexOf(b.getAttribute('data-v'));b.classList.toggle('on',i>=0);b.querySelector('.rk').textContent=i>=0?(i+1)+'º':''})}
+  opts.forEach(function(o,i){var b=h('button',{type:'button',class:'opt',role:'checkbox',style:'--i:'+i,'data-v':o},h('span',{class:'rk'}),h('span',{class:'lb',text:o}));
+    b.addEventListener('click',function(){vib();clearTimeout(tm);var a=A[q.id],k=a.indexOf(o);if(k>=0)a.splice(k,1);else if(a.length<3)a.push(o);else{showErr('Já são 3. Toque em um deles para trocar.');return}paintR();var e=stage.querySelector('.err');if(e)e.innerHTML='';});
+    box.appendChild(b)});
+  paintR();return box;
+}
+function wScale(s,q){
+  var n=q.hi-q.lo+1,box=h('div',{class:'scale',style:'--n:'+n,role:'radiogroup','aria-label':q.t});
+  for(var v=q.lo;v<=q.hi;v++)(function(v){var b=h('button',{type:'button',class:'sc'+(A[q.id]===v?' on':''),role:'radio','aria-checked':A[q.id]===v,style:'--i:'+(v-q.lo),text:String(v),'data-v':v});
+    b.addEventListener('click',function(){vib();A[q.id]=v;[].forEach.call(box.children,function(x){x.classList.toggle('on',+x.getAttribute('data-v')===v);x.setAttribute('aria-checked',+x.getAttribute('data-v')===v)});scheduleNext(560)});box.appendChild(b)})(v);
+  var w=h('div');if(/^(catt|chance)$/.test(q.id))w.appendChild(reread());w.appendChild(box);w.appendChild(h('div',{class:'ends'},h('span',{text:q.a}),h('span',{text:q.b})));return w;
+}
+function gridRows(q){return q.rows}
+function wGrid(s,q){
+  var rows=q.rows;if(q.rand){stable['g'+q.id]=stable['g'+q.id]||shuffle(rows);rows=stable['g'+q.id]}
+  A[q.id]=A[q.id]||{};var box=h('div',{class:'grid'}),cols=q.cols;
+  rows.forEach(function(r,ri){
+    var g=h('div',{class:'gr'+(A[q.id][r]?' done':''),style:'--i:'+ri});g.appendChild(h('p',{text:r}));
+    var ch=h('div',{class:'chips',role:'radiogroup','aria-label':r});
+    cols.forEach(function(c,ci){var b=h('button',{type:'button',class:'chip'+(A[q.id][r]===ci+1?' on':''),role:'radio','aria-checked':A[q.id][r]===ci+1,'data-v':ci+1},h('b',{text:String(ci+1)}),h('small',{text:c}));
+      b.addEventListener('click',function(){vib();A[q.id][r]=ci+1;[].forEach.call(ch.children,function(x){var on=+x.getAttribute('data-v')===ci+1;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)});g.classList.add('done');
+        var done=rows.every(function(x){return A[q.id][x]});if(!done){var nx=g.nextElementSibling;while(nx&&nx.classList.contains('done'))nx=nx.nextElementSibling;if(nx&&!reduce)nx.scrollIntoView({behavior:'smooth',block:'center'})}else{var e=stage.querySelector('.err');if(e)e.innerHTML=''}});
+      ch.appendChild(b)});
+    g.appendChild(ch);g.appendChild(h('div',{class:'gends'},h('span',{text:'1 · '+cols[0]}),h('span',{text:'5 · '+cols[4]})));box.appendChild(g)});
+  var w=h('div');if(/^ccrd$/.test(q.id))w.appendChild(reread());w.appendChild(box);return w;
+}
+function wOpen(s,q){
+  var ta=h('textarea',{class:'ta',maxlength:'600',rows:'4',placeholder:'Escreva aqui com as suas palavras…','aria-label':q.t});ta.value=A[q.id]||'';
+  var c=h('div',{class:'cnt'});
+  function up(){A[q.id]=ta.value;c.textContent=ta.value.length+' / 600';setNext(ta.value.trim()?'Continuar':'Pular',true)}
+  ta.addEventListener('input',up);var w=h('div');if(q.id==='m1')w.appendChild(reread());w.appendChild(ta);w.appendChild(c);var tk=token;up();setTimeout(function(){if(tk===token&&!matchMedia('(pointer:coarse)').matches)ta.focus()},650);
+  kb.textContent='Ctrl + Enter para continuar';return w;
+}
+function wOpen2(s,q){
+  var w=h('div');w.appendChild(reread());A[q.id]=A[q.id]||{};
+  [['mais','O que mais chamou a sua atenção?'],['menos','E o que menos chamou?']].forEach(function(p){
+    w.appendChild(h('label',{class:'lab',text:p[1],for:'f_'+p[0]}));
+    var ta=h('textarea',{class:'ta',id:'f_'+p[0],maxlength:'400',rows:'3',placeholder:'Escreva aqui…',style:'min-height:92px'});ta.value=A[q.id][p[0]]||'';
+    ta.addEventListener('input',function(){A[q.id][p[0]]=ta.value;setNext((A[q.id].mais||'').trim()||(A[q.id].menos||'').trim()?'Continuar':'Pular',true)});w.appendChild(ta)});
+  setNext((A[q.id].mais||A[q.id].menos)?'Continuar':'Pular',true);return w;
+}
+function wTop(s,q){
+  A[q.id]=A[q.id]||['','',''];var box=h('div',{class:'fields'});
+  [0,1,2].forEach(function(i){var inp=h('input',{class:'txt',type:'text',maxlength:'60',placeholder:(i+1)+'ª faculdade','aria-label':(i+1)+'ª faculdade',value:A[q.id][i]||''});
+    inp.addEventListener('input',function(){A[q.id][i]=inp.value;setNext(A[q.id].join('').trim()?'Continuar':'Pular',true)});box.appendChild(h('div',{class:'field'},h('b',{text:String(i+1)}),inp))});
+  setNext(A[q.id].join('').trim()?'Continuar':'Pular',true);return box;
+}
+function wAssoc(s,q){
+  A[q.id]=A[q.id]||{};var box=h('div',{class:'grid'});
+  q.rows.forEach(function(r,i){var inp=h('input',{class:'txt',type:'text',maxlength:'60',placeholder:'Nome da faculdade ou “nenhuma”','aria-label':r,value:A[q.id][r]||''});
+    inp.addEventListener('input',function(){A[q.id][r]=inp.value});
+    var sug=h('div',{class:'sug'});FAC.filter(function(f){return f!=='SKEMA'}).slice(0,5).concat(['Nenhuma']).forEach(function(f){var b=h('button',{type:'button',text:f});b.addEventListener('click',function(){inp.value=f;A[q.id][r]=f;vib()});sug.appendChild(b)});
+    box.appendChild(h('div',{class:'as',style:'--i:'+i},h('p',{text:r}),inp,sug))});
+  setNext('Continuar',true);return box;
+}
+
+/* ---------- teclado ---------- */
+document.addEventListener('keydown',function(e){
+  if(!cur||e.metaKey||e.altKey)return;
+  var tg=e.target&&e.target.tagName,inText=tg==='TEXTAREA'||(tg==='INPUT'&&e.target.type==='text');
+  if(e.key==='Enter'){
+    if(tg==='TEXTAREA'&&!e.ctrlKey)return;
+    if(tg==='BUTTON'&&e.target.classList.contains('opt'))return;
+    if(tg==='BUTTON'&&e.target!==bNext)return;
+    e.preventDefault();if(!bNext.disabled)next();return;
+  }
+  if(inText)return;
+  var k=e.key.toUpperCase();
+  if(k.length===1&&k>='A'&&k<='Z'){var b=stage.querySelectorAll('.opt')[k.charCodeAt(0)-65];if(b){b.click();e.preventDefault()}}
+  else if(/^[0-9]$/.test(e.key)){var sc=stage.querySelectorAll('.sc');if(sc.length){var q=Q[cur.id],v=+e.key;if(v>=q.lo&&v<=q.hi&&sc[v-q.lo]){sc[v-q.lo].click()}}}
+});
+
+/* ---------- envio ---------- */
+function confetti(){if(reduce)return;var b=$('bits');b.innerHTML='';for(var i=0;i<34;i++){var d=h('i',{class:'bit'});d.style.left='50%';d.style.top='42%';d.style.setProperty('--x',(Math.random()*90-45)+'vw');d.style.setProperty('--y',(Math.random()*80-50)+'vh');d.style.animationDelay=(Math.random()*.25)+'s';b.appendChild(d)}setTimeout(function(){b.innerHTML=''},2200)}
+function payload(reason){
+  var core=ix('int',A);
+  return {versao:CFG.VERSAO||'1.0',coletor:COLETOR,nucleo:core<0?null:core<=1,concluido:reason==='completo',encerramento:reason==='completo'?null:reason,duracao_s:t0?Math.round((Date.now()-t0)/1000):null,respostas:A};
+}
+function send(body){
+  if(DEMO){console.log('[DEMO] payload',JSON.stringify(body,null,1));window.__lastPayload=body;return Promise.resolve();}
+  return fetch(CFG.SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/'+(CFG.TABELA||'respostas_ensino_medio'),{method:'POST',headers:{'apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
+   .then(function(r){if(!r.ok)throw new Error('http '+r.status)});
+}
+var PEND='skjr_em_pend',DONE='skjr_em_done';
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function retryPending(){var p=lsGet(PEND);if(!p)return;try{send(JSON.parse(p)).then(function(){try{localStorage.removeItem(PEND)}catch(e){}})["catch"](function(){})}catch(e){}}
+window.addEventListener('online',retryPending);
+var finishing=false;
+function finish(reason){
+  if(finishing)return;finishing=true;token++;clearTimeout(tm);
+  bNext.hidden=true;bBack.hidden=true;kb.hidden=true;$('bar').style.width='100%';setRail('Perfil');
+  var body=payload(reason);
+  stage.innerHTML='';var w=h('section',{class:'step end'},h('div',{class:'spin'}),h('p',{text:'Salvando as suas respostas…'}));stage.appendChild(w);
+  var ok=function(){showEnd(reason)};
+  send(body).then(function(){if(reason==='completo')lsSet(DONE,'1');ok()})["catch"](function(){lsSet(PEND,JSON.stringify(body));showEnd(reason,true)});
+}
+function showEnd(reason,saved){
+  var T={
+   completo:['Obrigada pela sua ajuda!','Suas respostas foram enviadas e vão ajudar a entender como estudantes escolhem a faculdade. Foi muito útil mesmo.'],
+   fora_do_publico:['Obrigada pelo seu tempo!','Esta pesquisa é para quem está no 3º ano do ensino médio ou no cursinho. Agradecemos o interesse.'],
+   nao_pretende_direito:['Obrigada pelo seu tempo!','Esta pesquisa é focada em quem pretende cursar Direito. Agradecemos a sua resposta, ela também ajuda.'],
+   sem_autorizacao:['Quase lá!','Para participar, peça autorização de um responsável ou da sua escola e depois volte a este link. Nenhum dado seu foi guardado.']};
+  var t=T[reason]||T.completo;stage.innerHTML='';
+  var seal=h('div',{class:'seal'},h('i'),h('i'));var sv=document.createElementNS('http://www.w3.org/2000/svg','svg');sv.setAttribute('viewBox','0 0 24 24');var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M5 12.5l4.2 4.2L19 7');sv.appendChild(p);seal.appendChild(sv);
+  var w=h('section',{class:'step end'},seal,h('h1',{text:t[0]}),h('p',{text:t[1]}));
+  if(saved)w.appendChild(h('p',{class:'fine',text:'Sem conexão no momento: guardamos as respostas neste aparelho e vamos reenviar automaticamente quando a internet voltar.',style:'margin-left:auto;margin-right:auto'}));
+  if(reason==='completo'||reason==='fora_do_publico'||reason==='nao_pretende_direito'){
+    var link=location.origin+location.pathname+(COLETOR?'?c='+COLETOR:'');
+    var b=h('button',{type:'button',class:'btn pri'},'Enviar o link a um colega');b.addEventListener('click',function(){var d={title:'Pesquisa: como você escolhe sua faculdade?',text:'Pesquisa rápida e anônima para quem está no 3º ano ou no cursinho.',url:link};
+      if(navigator.share){navigator.share(d)["catch"](function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(link).then(function(){b.textContent='Link copiado!'})}});
+    w.appendChild(h('div',{class:'share'},h('b',{text:'Conhece alguém do 3º ano ou do cursinho?'}),h('span',{text:'Quanto mais estudantes responderem, mais fiel fica o retrato. Só envie a quem tem 18 anos ou mais, ou a quem tem autorização de um responsável.'}),b));
+  }
+  stage.appendChild(w);if(reason==='completo')confetti();
+}
+
+/* ---------- início ---------- */
+(function(){
+  if(lsGet(DONE)&&!P.has('force')&&!DEMO){
+    stage.appendChild(h('section',{class:'step end'},h('h1',{text:'Você já respondeu. Obrigada!'}),h('p',{text:'Identificamos que esta pesquisa já foi respondida neste aparelho. Se for outra pessoa, peça para abrir o link no próprio celular.'})));
+    $('nav').hidden=true;return;
+  }
+  retryPending();
+  if(DEMO){var d=h('div',{class:'demo',text:'MODO TESTE · nada será enviado'});document.body.appendChild(d)}
+  go(STEPS[0]);
+  window.__dbg={A:A,go:function(id){go(STEPS.filter(function(s){return s.id===id})[0])},STEPS:STEPS,next:next};
+})();
+})();
+</script>
+</body>
+</html>
