@@ -2,8 +2,8 @@
 // A chave "anon" do Supabase é pública por design: quem protege os dados é a RLS (veja supabase.sql).
 // NUNCA coloque aqui a chave "service_role".
 window.PESQUISA_CONFIG = {
-  SUPABASE_URL: "https://SEU-PROJETO.supabase.co",
-  SUPABASE_ANON_KEY: "COLE-AQUI-A-CHAVE-ANON",
+  SUPABASE_URL: "https://ngkmsropdqhqogcrjylb.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5na21zcm9wZHFocW9nY3JqeWxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ0MDY4MzYsImV4cCI6MjEwOTk4MjgzNn0.3ZzEIvHyaDgFOBveuoEbIpW1OhSV8k60TcsStguR3yc",
   TABELA: "respostas_ensino_medio",
   VERSAO: "1.0",
 

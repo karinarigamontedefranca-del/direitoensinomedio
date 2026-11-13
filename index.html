@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#16204F">
 <meta name="robots" content="noindex,nofollow">
-<title>Como você escolhe sua faculdade? · Pesquisa</title>
-<meta name="description" content="Pesquisa rápida e anônima para quem está no 3º ano do ensino médio ou no cursinho.">
+<title>Como você escolhe a faculdade de Direito? · Pesquisa</title>
+<meta name="description" content="Pesquisa rápida e anônima para estudantes do 3º ano, do cursinho e de Direito.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -201,6 +201,15 @@ h1.q{font-size:clamp(25px,4.1vw,46px);line-height:1.16;font-weight:800;letter-sp
   .top .sec{display:none}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}}
+.chips{grid-template-columns:repeat(var(--c,5),1fr)}
+.mrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mrow .box{position:relative;flex:1;min-width:150px;max-width:260px}
+.mrow .box span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--mint)}
+.mrow .box input{padding-left:50px}
+.chip2{font-size:13.5px;font-weight:600;padding:12px 18px;border-radius:99px;border:1.5px solid var(--line);color:var(--soft);transition:.2s}
+.chip2:hover{border-color:var(--mint);color:var(--off)}
+.chip2.on{background:var(--mint);color:var(--navy);border-color:var(--mint);font-weight:700}
+.mrow+.lab{margin-top:22px}
 .bits{position:fixed;inset:0;pointer-events:none;z-index:8;overflow:hidden}
 .bit{position:absolute;width:12px;height:12px;background:var(--mint);transform:rotate(45deg);animation:bit 1.6s cubic-bezier(.2,.7,.3,1) forwards;opacity:0}
 .bit:nth-child(3n){background:var(--off);width:8px;height:8px}
@@ -227,8 +236,8 @@ h1.q{font-size:clamp(25px,4.1vw,46px);line-height:1.16;font-weight:800;letter-sp
 (function(){
 'use strict';
 var CFG=window.PESQUISA_CONFIG||{};
-var QS=[{"k": "screen", "sec": "Triagem", "text": "Abertura: texto de apresentação e aviso de privacidade (ver página final). Pesquisa anônima. Nenhum nome, e-mail, telefone ou nome da escola é coletado."}, {"k": "single", "id": "sit", "code": "M1", "sec": "Triagem", "t": "Qual é a sua situação hoje?", "o": ["Estou no 3º ano do ensino médio", "Faço cursinho pré-vestibular", "Outra situação (encerrar com agradecimento)"], "other": false, "rand": false}, {"k": "single", "id": "age", "code": "M2", "sec": "Triagem", "t": "Qual é a sua idade?", "o": ["16 anos ou menos", "17 anos", "18 anos", "19 anos ou mais"], "other": false, "rand": false}, {"k": "single", "id": "int", "code": "M3", "sec": "Triagem", "t": "Você pretende cursar Direito?", "o": ["Sim, o Direito é a minha primeira opção", "Estou entre o Direito e outro curso", "Ainda não sei, mas o Direito está entre as ideias", "Não pretendo cursar Direito"], "other": false, "rand": false}, {"k": "open", "id": "why_no", "code": "M4", "sec": "Triagem", "t": "O que te levou a não escolher o Direito? E qual curso te atrai mais?", "lines": 2}, {"k": "open", "id": "open", "code": "M5", "sec": "Como você escolhe", "t": "Quando pensa em escolher uma faculdade de Direito, o que é mais importante para você?", "lines": 3}, {"k": "rank", "id": "rank", "code": "M6", "sec": "Como você escolhe", "t": "Entre os fatores abaixo, quais 3 mais pesam na sua escolha da faculdade?", "o": ["Dimensão internacional e intercâmbio", "Negócios e tecnologia na formação", "Reputação e prestígio da marca", "Tradição e história da instituição", "Corpo docente", "Grade curricular e projeto pedagógico", "Mensalidade e condições de pagamento", "Bolsa ou desconto", "Localização e infraestrutura", "Indicação de familiares e conhecidos", "Preparação para a OAB e concursos", "Networking e empregabilidade"], "hint": "Indique o 1º, o 2º e o 3º mais importantes. Os demais ficam em branco.", "rand": true}, {"k": "single", "id": "origin", "code": "M7", "sec": "Como você escolhe", "t": "De onde veio o seu interesse por Direito?", "o": ["Por conta própria", "Por influência da família", "Por um professor ou pela escola", "Por série, filme ou conteúdo na internet", "Por uma situação que vivi ou presenciei", "Por indicação de um profissional da área"], "other": true, "rand": true}, {"k": "multi", "id": "fwho", "code": "M8", "sec": "Família e tradição", "t": "Quem participa da decisão sobre onde estudar?", "o": ["Eu decido sozinho(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a) da escola", "Profissional ou estudante de Direito que eu conheço", "Conteúdos e influenciadores na internet"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "single", "id": "fmost", "code": "M9", "sec": "Família e tradição", "t": "E quem tem a maior influência na decisão?", "o": ["Eu mesmo(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a)", "Profissional ou estudante de Direito", "Conteúdos e influenciadores", "Outro"], "other": false, "rand": false}, {"k": "single", "id": "fweight", "code": "M10", "sec": "Família e tradição", "t": "Quanto a opinião da sua família pesa na escolha da faculdade?", "o": ["Nenhum peso", "Pouco peso", "Peso médio", "Muito peso", "É decisiva"], "other": false, "rand": false}, {"k": "single", "id": "flaw", "code": "M11", "sec": "Família e tradição", "t": "Existem profissionais do Direito na sua família (advogado, juiz, promotor, delegado, servidor jurídico)?", "o": ["Sim, pai ou mãe", "Sim, outro familiar próximo (avós, tios, irmãos)", "Apenas familiares distantes ou amigos próximos da família", "Ninguém"], "other": false, "rand": false}, {"k": "grid", "id": "flike", "code": "M12", "sec": "Família e tradição", "t": "Quanto você concorda com cada frase?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Estou escolhendo Direito principalmente por vontade própria.", "Na minha família, estudar Direito é uma tradição.", "Minha família prefere uma faculdade mais tradicional e conhecida.", "Minha família tem dúvidas sobre uma faculdade com proposta internacional e de tecnologia.", "Eu teria de convencer minha família a aceitar uma faculdade menos conhecida."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "fsaid", "code": "M13", "sec": "Família e tradição", "t": "O que sua família disse ou perguntou quando você falou das faculdades que estava considerando?", "lines": 2}, {"k": "single", "id": "final", "code": "M14", "sec": "Família e tradição", "t": "Quem vai tomar a decisão final sobre a faculdade?", "o": ["Eu", "Eu e minha família, juntos", "Principalmente minha família"], "other": false, "rand": false}, {"k": "single", "id": "payer", "code": "M15", "sec": "Família e tradição", "t": "Quem deve pagar a mensalidade?", "o": ["Minha família, integralmente", "Minha família, com bolsa ou desconto", "Eu, com meu trabalho ou financiamento", "Ainda não sei"], "other": false, "rand": false}, {"k": "open", "id": "top", "code": "M16", "sec": "Marcas e conhecimento", "t": "Quais faculdades de Direito vêm à sua cabeça? Cite até 3.", "lines": 1}, {"k": "multi", "id": "aided", "code": "M17", "sec": "Marcas e conhecimento", "t": "Quais destas faculdades você conhece, pelo menos de nome?", "o": ["Lista de faculdades de Direito concorrentes da região, em ordem aleatória (a validar com a SKEMA), incluindo a SKEMA", "Nenhuma delas"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "grid", "id": "assoc", "code": "M18", "sec": "Marcas e conhecimento", "t": "Que faculdade você associa a cada característica?", "rand": false, "rows": ["Dimensão internacional", "Negócios e tecnologia", "Preparação para a OAB", "Tradição", "Networking e empregabilidade", "Melhor custo-benefício"], "cols": ["Resposta aberta: escreva o nome da faculdade ou “nenhuma”"]}, {"k": "multi", "id": "chan", "code": "M19", "sec": "Marcas e conhecimento", "t": "Onde você pesquisa faculdades?", "o": ["Google", "Instagram", "TikTok", "YouTube", "Sites de guias e rankings", "Conversa com professores ou orientador(a)", "Conversa com a família", "Feiras e eventos de faculdades", "Podcasts"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "screen", "sec": "Marcas e conhecimento", "text": "Tela de revelação (exibir antes do próximo bloco): “Esta pesquisa é feita pela SKEMA Consultoria Júnior, a pedido da SKEMA Business School. A partir daqui, algumas perguntas falam da SKEMA.” Mantém a lembrança de marca limpa e cumpre a exigência de informar o controlador dos dados."}, {"k": "single", "id": "sk", "code": "M20", "sec": "Marcas e conhecimento", "t": "O que você sabe sobre a SKEMA?", "o": ["Nunca ouvi falar", "Já ouvi o nome", "Sei que ela oferece Direito", "Conheço a proposta do curso", "Já visitei ou conversei com alguém"], "other": false, "rand": false}, {"k": "card", "sec": "Proposta de valor", "title": "Cartão da proposta (mesmo texto nos questionários dos públicos externos)", "text": "Curso de Direito da SKEMA Business School. Formação jurídica integrada a negócios e tecnologia, com vivência internacional e possibilidade de mobilidade entre países, em uma escola de posicionamento global. [Texto final a validar com a SKEMA: usa apenas os diferenciais descritos no contrato.]"}, {"k": "scale", "id": "catt", "code": "M21", "sec": "Proposta de valor", "t": "No geral, quão atraente é essa proposta para você?", "lo": 1, "hi": 5, "a": "Nada atraente", "b": "Muito atraente"}, {"k": "grid", "id": "ccrd", "code": "M22", "sec": "Proposta de valor", "t": "Quanto você concorda com cada frase sobre essa proposta?", "rand": false, "rows": ["Eu entendi com clareza o que o curso oferece.", "Essa proposta é relevante para a carreira que eu quero.", "Esse curso parece diferente das outras faculdades de Direito."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "cplus", "code": "M23", "sec": "Proposta de valor", "t": "O que mais chamou a sua atenção na proposta? E o que menos?", "lines": 3}, {"k": "open", "id": "m1", "code": "M24", "sec": "Proposta de valor", "t": "Se você fosse estudar Direito, o que te levaria a estudar na SKEMA?", "lines": 3}, {"k": "scale", "id": "chance", "code": "M25", "sec": "Proposta de valor", "t": "Qual a chance de você considerar a SKEMA para estudar Direito?", "lo": 0, "hi": 10, "a": "Nenhuma", "b": "Certamente consideraria"}, {"k": "single", "id": "fear", "code": "M26", "sec": "Proposta de valor", "t": "Qual é o seu maior receio ao escolher uma faculdade de Direito?", "o": ["O custo da mensalidade", "Escolher uma faculdade pouco tradicional", "Não passar na OAB", "Dificuldade de conseguir emprego na minha região", "A distância de casa", "O nome da faculdade não ser conhecido", "O ensino se afastar do Direito clássico"], "other": true, "rand": true}, {"k": "grid", "id": "kfmt", "code": "M27", "sec": "Canais e conteúdo", "t": "Quanto cada formato de conteúdo despertaria o seu interesse em uma faculdade de Direito?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Podcast com advogados, juízes e profissionais da área", "Revista ou newsletter sobre carreira jurídica e mercado", "Perfil no Instagram com a rotina de alunos e egressos", "Vídeos curtos de professores explicando casos reais", "Eventos e palestras na escola ou no cursinho", "Conversas diretas com alunos e egressos"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "single", "id": "faixa", "code": "M28", "sec": "Preço e apoio financeiro", "t": "Qual faixa de mensalidade a sua família considera possível para uma faculdade de Direito?", "o": ["Até R$ 1.500", "De R$ 1.501 a R$ 2.500", "De R$ 2.501 a R$ 3.500", "De R$ 3.501 a R$ 4.500", "De R$ 4.501 a R$ 6.000", "Acima de R$ 6.000", "Não sei"], "other": false, "rand": false}, {"k": "single", "id": "qual", "code": "M29", "sec": "Preço e apoio financeiro", "t": "Para você, uma faculdade de mensalidade mais alta é, em geral:", "o": ["Sinal de mais qualidade", "Depende do que ela oferece", "Não muda a minha percepção", "Sinal de que não cabe no meu orçamento"], "other": false, "rand": false}, {"k": "grid", "id": "fmt", "code": "M30", "sec": "Preço e apoio financeiro", "t": "Quão atraente seria cada formato de apoio financeiro?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Desconto fixo na mensalidade", "Bolsa por desempenho acadêmico, mantida pelas notas", "Bolsa em troca de monitoria (aluno monitor remunerado em bolsa)", "Bolsa para projeto de pesquisa ou extensão", "Parcelamento ou financiamento próprio da faculdade"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "single", "id": "reg", "code": "M31", "sec": "Perfil", "t": "Onde você mora?", "o": ["Belo Horizonte", "Região metropolitana de Belo Horizonte", "Interior de Minas Gerais", "Outro estado"], "hint": "Região, nunca endereço.", "other": false, "rand": false}, {"k": "single", "id": "school", "code": "M32", "sec": "Perfil", "t": "Que tipo de escola você cursa ou cursou?", "o": ["Pública", "Privada", "Privada com bolsa", "Cursinho"], "other": false, "rand": false}];
-var Q={};QS.forEach(function(q){if(q.id)Q[q.id]=q;});
+var QS=[{"id": "pub", "k": "single", "sec": "Triagem", "t": "Qual é a sua situação hoje?", "hint": "Isso define as perguntas que você vai responder.", "o": ["Estou no 3º ano do ensino médio", "Faço cursinho pré-vestibular", "Estudo Direito em uma faculdade", "Outra situação"]}, {"k": "single", "id": "e_age", "code": "M2", "sec": "Triagem", "t": "Qual é a sua idade?", "o": ["16 anos ou menos", "17 anos", "18 anos", "19 anos ou mais"], "other": false, "rand": false}, {"k": "single", "id": "e_int", "code": "M3", "sec": "Triagem", "t": "Você pretende cursar Direito?", "o": ["Sim, o Direito é a minha primeira opção", "Estou entre o Direito e outro curso", "Ainda não sei, mas o Direito está entre as ideias", "Não pretendo cursar Direito"], "other": false, "rand": false}, {"k": "open", "id": "e_why_no", "code": "M4", "sec": "Triagem", "t": "O que te levou a não escolher o Direito? E qual curso te atrai mais?", "lines": 2}, {"k": "open", "id": "e_open", "code": "M5", "sec": "Como você escolhe", "t": "Quando pensa em escolher uma faculdade de Direito, o que é mais importante para você?", "lines": 3}, {"k": "rank", "id": "e_rank", "code": "M6", "sec": "Como você escolhe", "t": "Entre os fatores abaixo, quais 3 mais pesam na sua escolha da faculdade?", "o": ["Dimensão internacional e intercâmbio", "Negócios e tecnologia na formação", "Reputação e prestígio da marca", "Tradição e história da instituição", "Corpo docente", "Grade curricular e projeto pedagógico", "Mensalidade e condições de pagamento", "Bolsa ou desconto", "Localização e infraestrutura", "Indicação de familiares e conhecidos", "Preparação para a OAB e concursos", "Networking e empregabilidade"], "hint": "Indique o 1º, o 2º e o 3º mais importantes. Os demais ficam em branco.", "rand": true}, {"k": "single", "id": "e_origin", "code": "M7", "sec": "Como você escolhe", "t": "De onde veio o seu interesse por Direito?", "o": ["Por conta própria", "Por influência da família", "Por um professor ou pela escola", "Por série, filme ou conteúdo na internet", "Por uma situação que vivi ou presenciei", "Por indicação de um profissional da área"], "other": true, "rand": true}, {"k": "multi", "id": "e_fwho", "code": "M8", "sec": "Família e tradição", "t": "Quem participa da decisão sobre onde estudar?", "o": ["Eu decido sozinho(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a) da escola", "Profissional ou estudante de Direito que eu conheço", "Conteúdos e influenciadores na internet"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "single", "id": "e_fmost", "code": "M9", "sec": "Família e tradição", "t": "E quem tem a maior influência na decisão?", "o": ["Eu mesmo(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a)", "Profissional ou estudante de Direito", "Conteúdos e influenciadores", "Outro"], "other": false, "rand": false}, {"k": "single", "id": "e_fweight", "code": "M10", "sec": "Família e tradição", "t": "Quanto a opinião da sua família pesa na escolha da faculdade?", "o": ["Nenhum peso", "Pouco peso", "Peso médio", "Muito peso", "É decisiva"], "other": false, "rand": false}, {"k": "single", "id": "e_flaw", "code": "M11", "sec": "Família e tradição", "t": "Existem profissionais do Direito na sua família (advogado, juiz, promotor, delegado, servidor jurídico)?", "o": ["Sim, pai ou mãe", "Sim, outro familiar próximo (avós, tios, irmãos)", "Apenas familiares distantes ou amigos próximos da família", "Ninguém"], "other": false, "rand": false}, {"k": "grid", "id": "e_flike", "code": "M12", "sec": "Família e tradição", "t": "Quanto você concorda com cada frase?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Estou escolhendo Direito principalmente por vontade própria.", "Na minha família, estudar Direito é uma tradição.", "Minha família prefere uma faculdade mais tradicional e conhecida.", "Minha família tem dúvidas sobre uma faculdade com proposta internacional e de tecnologia.", "Eu teria de convencer minha família a aceitar uma faculdade menos conhecida."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "e_fsaid", "code": "M13", "sec": "Família e tradição", "t": "O que sua família disse ou perguntou quando você falou das faculdades que estava considerando?", "lines": 2}, {"k": "single", "id": "e_final", "code": "M14", "sec": "Família e tradição", "t": "Quem vai tomar a decisão final sobre a faculdade?", "o": ["Eu", "Eu e minha família, juntos", "Principalmente minha família"], "other": false, "rand": false}, {"k": "single", "id": "e_payer", "code": "M15", "sec": "Família e tradição", "t": "Quem deve pagar a mensalidade?", "o": ["Minha família, integralmente", "Minha família, com bolsa ou desconto", "Eu, com meu trabalho ou financiamento", "Ainda não sei"], "other": false, "rand": false}, {"k": "open", "id": "e_top", "code": "M16", "sec": "Marcas e conhecimento", "t": "Quais faculdades de Direito vêm à sua cabeça? Cite até 3.", "lines": 1}, {"k": "multi", "id": "e_aided", "code": "M17", "sec": "Marcas e conhecimento", "t": "Quais destas faculdades você conhece, pelo menos de nome?", "o": ["Lista de faculdades de Direito concorrentes da região, em ordem aleatória (a validar com a SKEMA), incluindo a SKEMA", "Nenhuma delas"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "grid", "id": "e_assoc", "code": "M18", "sec": "Marcas e conhecimento", "t": "Que faculdade você associa a cada característica?", "rand": false, "rows": ["Dimensão internacional", "Negócios e tecnologia", "Preparação para a OAB", "Tradição", "Networking e empregabilidade", "Melhor custo-benefício"], "cols": ["Resposta aberta: escreva o nome da faculdade ou “nenhuma”"]}, {"k": "multi", "id": "e_chan", "code": "M19", "sec": "Marcas e conhecimento", "t": "Onde você pesquisa faculdades?", "o": ["Google", "Instagram", "TikTok", "YouTube", "Sites de guias e rankings", "Conversa com professores ou orientador(a)", "Conversa com a família", "Feiras e eventos de faculdades", "Podcasts"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "single", "id": "e_sk", "code": "M20", "sec": "Marcas e conhecimento", "t": "O que você sabe sobre a SKEMA?", "o": ["Nunca ouvi falar", "Já ouvi o nome", "Sei que ela oferece Direito", "Conheço a proposta do curso", "Já visitei ou conversei com alguém"], "other": false, "rand": false}, {"k": "scale", "id": "e_catt", "code": "M21", "sec": "Proposta de valor", "t": "No geral, quão atraente é essa proposta para você?", "lo": 1, "hi": 5, "a": "Nada atraente", "b": "Muito atraente"}, {"k": "grid", "id": "e_ccrd", "code": "M22", "sec": "Proposta de valor", "t": "Quanto você concorda com cada frase sobre essa proposta?", "rand": false, "rows": ["Eu entendi com clareza o que o curso oferece.", "Essa proposta é relevante para a carreira que eu quero.", "Esse curso parece diferente das outras faculdades de Direito."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "e_cplus", "code": "M23", "sec": "Proposta de valor", "t": "O que mais chamou a sua atenção na proposta? E o que menos?", "lines": 3}, {"k": "open", "id": "e_m1", "code": "M24", "sec": "Proposta de valor", "t": "Se você fosse estudar Direito, o que te levaria a estudar na SKEMA?", "lines": 3}, {"k": "scale", "id": "e_chance", "code": "M25", "sec": "Proposta de valor", "t": "Qual a chance de você considerar a SKEMA para estudar Direito?", "lo": 0, "hi": 10, "a": "Nenhuma", "b": "Certamente consideraria"}, {"k": "single", "id": "e_fear", "code": "M26", "sec": "Proposta de valor", "t": "Qual é o seu maior receio ao escolher uma faculdade de Direito?", "o": ["O custo da mensalidade", "Escolher uma faculdade pouco tradicional", "Não passar na OAB", "Dificuldade de conseguir emprego na minha região", "A distância de casa", "O nome da faculdade não ser conhecido", "O ensino se afastar do Direito clássico"], "other": true, "rand": true}, {"k": "grid", "id": "e_kfmt", "code": "M27", "sec": "Canais e conteúdo", "t": "Quanto cada formato de conteúdo despertaria o seu interesse em uma faculdade de Direito?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Podcast com advogados, juízes e profissionais da área", "Revista ou newsletter sobre carreira jurídica e mercado", "Perfil no Instagram com a rotina de alunos e egressos", "Vídeos curtos de professores explicando casos reais", "Eventos e palestras na escola ou no cursinho", "Conversas diretas com alunos e egressos"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "single", "id": "e_faixa", "code": "M28", "sec": "Preço e apoio financeiro", "t": "Qual faixa de mensalidade a sua família considera possível para uma faculdade de Direito?", "o": ["Até R$ 1.500", "De R$ 1.501 a R$ 2.500", "De R$ 2.501 a R$ 3.500", "De R$ 3.501 a R$ 4.500", "De R$ 4.501 a R$ 6.000", "Acima de R$ 6.000", "Não sei"], "other": false, "rand": false}, {"k": "single", "id": "e_qual", "code": "M29", "sec": "Preço e apoio financeiro", "t": "Para você, uma faculdade de mensalidade mais alta é, em geral:", "o": ["Sinal de mais qualidade", "Depende do que ela oferece", "Não muda a minha percepção", "Sinal de que não cabe no meu orçamento"], "other": false, "rand": false}, {"k": "grid", "id": "e_fmt", "code": "M30", "sec": "Preço e apoio financeiro", "t": "Quão atraente seria cada formato de apoio financeiro?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Desconto fixo na mensalidade", "Bolsa por desempenho acadêmico, mantida pelas notas", "Bolsa em troca de monitoria (aluno monitor remunerado em bolsa)", "Bolsa para projeto de pesquisa ou extensão", "Parcelamento ou financiamento próprio da faculdade"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "single", "id": "e_reg", "code": "M31", "sec": "Perfil", "t": "Onde você mora?", "o": ["Belo Horizonte", "Região metropolitana de Belo Horizonte", "Interior de Minas Gerais", "Outro estado"], "hint": "Região, nunca endereço.", "other": false, "rand": false}, {"k": "single", "id": "e_school", "code": "M32", "sec": "Perfil", "t": "Que tipo de escola você cursa ou cursou?", "o": ["Pública", "Privada", "Privada com bolsa", "Cursinho"], "other": false, "rand": false}, {"k": "single", "id": "f_ies", "code": "F2", "sec": "Triagem", "t": "Em qual faculdade você estuda Direito?", "o": [], "hint": "Marque uma. Pode preferir informar apenas o tipo: pública ou privada.", "other": true, "rand": false}, {"k": "single", "id": "f_sem", "code": "F3", "sec": "Triagem", "t": "Em qual semestre você está?", "o": ["1º ou 2º", "3º ou 4º", "5º ou 6º", "7º ou 8º", "9º ou 10º"], "other": false, "rand": false}, {"k": "single", "id": "f_age", "code": "F4", "sec": "Triagem", "t": "Qual é a sua faixa etária?", "o": ["17 anos ou menos", "18 anos", "19 a 20 anos", "21 a 23 anos", "24 a 29 anos", "30 anos ou mais"], "other": false, "rand": false}, {"k": "open", "id": "f_open", "code": "F5", "sec": "A escolha da faculdade", "t": "Com as suas palavras: o que te levou a escolher a faculdade onde você estuda?", "lines": 4}, {"k": "single", "id": "f_first", "code": "F6", "sec": "A escolha da faculdade", "t": "A sua faculdade atual foi a primeira opção?", "o": ["Sim", "Não, era a segunda ou terceira opção", "Não, entrei por falta de outra alternativa"], "other": false, "rand": false}, {"k": "multi", "id": "f_cons", "code": "F7", "sec": "A escolha da faculdade", "t": "Que outras faculdades você considerou antes de decidir?", "o": ["Lista de faculdades de Direito concorrentes da região, em ordem aleatória (a validar com a SKEMA)", "Nenhuma"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "rank", "id": "f_rank", "code": "F8", "sec": "A escolha da faculdade", "t": "Quais foram os 3 fatores que mais pesaram na sua escolha?", "o": ["Dimensão internacional e intercâmbio", "Negócios e tecnologia na formação", "Reputação e prestígio da marca", "Tradição e história da instituição", "Corpo docente", "Grade curricular e projeto pedagógico", "Mensalidade e condições de pagamento", "Bolsa ou desconto", "Localização e infraestrutura", "Indicação de familiares e conhecidos", "Preparação para a OAB e concursos", "Networking e empregabilidade"], "hint": "Indique o 1º, o 2º e o 3º mais importantes. Os demais ficam em branco.", "rand": true}, {"k": "grid", "id": "f_perf", "code": "F9", "sec": "A escolha da faculdade", "t": "Hoje, como você avalia a sua faculdade em cada um destes fatores?", "hint": "1 = muito ruim e 5 = excelente. Marque uma opção em cada linha.", "rand": true, "rows": ["Dimensão internacional e intercâmbio", "Negócios e tecnologia na formação", "Reputação e prestígio da marca", "Tradição e história da instituição", "Corpo docente", "Grade curricular e projeto pedagógico", "Mensalidade e condições de pagamento", "Bolsa ou desconto", "Localização e infraestrutura", "Indicação de familiares e conhecidos", "Preparação para a OAB e concursos", "Networking e empregabilidade"], "cols": ["1", "2", "3", "4", "5"], "na": "Não sei"}, {"k": "single", "id": "f_tradfam", "code": "F10", "sec": "A escolha da faculdade", "t": "Alguém da sua família estudou na mesma faculdade?", "o": ["Sim, pai ou mãe", "Sim, outro familiar", "Não"], "other": false, "rand": false}, {"k": "multi", "id": "f_fwho", "code": "F11", "sec": "Família e tradição", "t": "Quem participou da decisão sobre onde estudar?", "o": ["Eu decidi sozinho(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a) da escola", "Profissional ou estudante de Direito que eu conheço", "Conteúdos e influenciadores na internet"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "single", "id": "f_fmost", "code": "F12", "sec": "Família e tradição", "t": "E quem teve a maior influência na decisão?", "o": ["Eu mesmo(a)", "Pai ou mãe (ou responsáveis)", "Irmãos ou outros familiares", "Amigos ou colegas", "Professores ou orientador(a)", "Profissional ou estudante de Direito", "Conteúdos e influenciadores", "Outro"], "other": false, "rand": false}, {"k": "single", "id": "f_fweight", "code": "F13", "sec": "Família e tradição", "t": "Quanto a opinião da sua família pesou na escolha da faculdade?", "o": ["Nenhum peso", "Pouco peso", "Peso médio", "Muito peso", "Foi decisiva"], "other": false, "rand": false}, {"k": "single", "id": "f_flaw", "code": "F14", "sec": "Família e tradição", "t": "Existem profissionais do Direito na sua família (advogado, juiz, promotor, delegado, servidor jurídico)?", "o": ["Sim, pai ou mãe", "Sim, outro familiar próximo (avós, tios, irmãos)", "Apenas familiares distantes ou amigos próximos da família", "Ninguém"], "other": false, "rand": false}, {"k": "grid", "id": "f_flike", "code": "F15", "sec": "Família e tradição", "t": "Quanto você concorda com cada frase?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Escolhi o Direito principalmente por vontade própria.", "Na minha família, estudar Direito é uma tradição.", "Minha família preferia uma faculdade mais tradicional e conhecida.", "Minha família teve dúvidas sobre uma faculdade com proposta internacional e de tecnologia.", "Eu decidi mesmo com a opinião contrária de alguém da família."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "f_fsaid", "code": "F16", "sec": "Família e tradição", "t": "O que sua família disse ou perguntou quando você falou das faculdades que estava considerando?", "lines": 2}, {"k": "open", "id": "f_top", "code": "F17", "sec": "Marcas e posicionamento", "t": "Quais faculdades de Direito vêm à sua cabeça? Cite até 3.", "lines": 1}, {"k": "multi", "id": "f_aided", "code": "F18", "sec": "Marcas e posicionamento", "t": "Quais destas faculdades você conhece, pelo menos de nome?", "o": ["Lista de faculdades de Direito concorrentes da região, em ordem aleatória (a validar com a SKEMA), incluindo a SKEMA", "Nenhuma delas"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "grid", "id": "f_assoc", "code": "F19", "sec": "Marcas e posicionamento", "t": "Que faculdade você associa a cada característica?", "rand": false, "rows": ["Dimensão internacional", "Negócios e tecnologia", "Preparação para a OAB", "Tradição", "Networking e empregabilidade", "Melhor custo-benefício"], "cols": ["Resposta aberta: escreva o nome da faculdade ou “nenhuma”"]}, {"k": "money", "id": "f_price", "code": "F20", "sec": "Preço", "t": "Quanto você paga de mensalidade, aproximadamente?", "hint": "Valores aproximados. Pode marcar “prefiro não informar”.", "rows": ["Mensalidade cheia, sem desconto (R$ por mês)", "Mensalidade que você de fato paga (R$ por mês)"]}, {"k": "single", "id": "f_disc", "code": "F21", "sec": "Preço", "t": "Você tem bolsa ou desconto?", "o": ["Sim, desconto comercial", "Sim, bolsa por mérito ou desempenho", "Sim, bolsa de convênio ou externa", "Não"], "other": false, "rand": false}, {"k": "single", "id": "f_nodisc", "code": "F22", "sec": "Preço", "t": "Se pagasse a mensalidade cheia, teria escolhido a mesma faculdade?", "o": ["Sim, com certeza", "Provavelmente sim", "Talvez", "Provavelmente não", "Não"], "other": false, "rand": false}, {"k": "single", "id": "f_val", "code": "F23", "sec": "Preço", "t": "Considerando o que a sua faculdade entrega, a mensalidade cheia é:", "o": ["Muito abaixo do que vale", "Um pouco abaixo", "Adequada", "Um pouco acima", "Muito acima do que vale"], "other": false, "rand": false}, {"k": "grid", "id": "f_fmt", "code": "F24", "sec": "Preço", "t": "Quão atraente seria cada formato de apoio financeiro?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Desconto fixo na mensalidade", "Bolsa por desempenho acadêmico, mantida pelas notas", "Bolsa em troca de monitoria (aluno monitor remunerado em bolsa)", "Bolsa para projeto de pesquisa ou extensão", "Parcelamento ou financiamento próprio da faculdade"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}, {"k": "scale", "id": "f_nps", "code": "F25", "sec": "Experiência na faculdade", "t": "De 0 a 10, o quanto você recomendaria a sua faculdade a um amigo?", "lo": 0, "hi": 10, "a": "Não recomendaria", "b": "Recomendaria com certeza"}, {"k": "open", "id": "f_why", "code": "F26", "sec": "Experiência na faculdade", "t": "Qual é o principal motivo da sua nota?", "lines": 2}, {"k": "single", "id": "f_swap", "code": "F27", "sec": "Experiência na faculdade", "t": "Você já pensou em mudar de faculdade?", "o": ["Nunca", "Já pensei, mas não pesquisei", "Já pesquisei outras opções", "Estou em processo de mudança"], "other": false, "rand": false}, {"k": "open", "id": "f_swapwhy", "code": "F28", "sec": "Experiência na faculdade", "t": "O que faria uma pessoa na sua situação mudar de faculdade?", "lines": 2}, {"k": "single", "id": "f_know", "code": "F29", "sec": "Revelação e proposta de valor", "t": "Na época em que você escolheu a faculdade, o que você sabia sobre o Direito da SKEMA?", "o": ["Não conhecia a SKEMA", "Conhecia a SKEMA, mas não sabia que ela oferece Direito", "Sabia que ela oferece Direito, mas não cheguei a considerar", "Considerei e descartei"], "other": false, "rand": false}, {"k": "open", "id": "f_knowwhy", "code": "F30", "sec": "Revelação e proposta de valor", "t": "O que pesou para a SKEMA não ser a sua escolha?", "lines": 2}, {"k": "money", "id": "f_skprice", "code": "F31", "sec": "Revelação e proposta de valor", "t": "Quanto você imagina que seja a mensalidade do Direito da SKEMA?", "hint": "Pode marcar “não faço ideia”.", "rows": ["Valor imaginado (R$ por mês)"]}, {"k": "scale", "id": "f_catt", "code": "F32", "sec": "Revelação e proposta de valor", "t": "No geral, quão atraente é essa proposta para você?", "lo": 1, "hi": 5, "a": "Nada atraente", "b": "Muito atraente"}, {"k": "grid", "id": "f_ccrd", "code": "F33", "sec": "Revelação e proposta de valor", "t": "Quanto você concorda com cada frase sobre essa proposta?", "rand": false, "rows": ["Eu entendi com clareza o que o curso oferece.", "Essa proposta é relevante para a carreira que eu quero.", "Esse curso parece diferente das outras faculdades de Direito."], "cols": ["Discordo totalmente", "Discordo", "Nem concordo nem discordo", "Concordo", "Concordo totalmente"]}, {"k": "open", "id": "f_cplus", "code": "F34", "sec": "Revelação e proposta de valor", "t": "O que mais chamou a sua atenção na proposta? E o que menos?", "lines": 3}, {"k": "open", "id": "f_m1", "code": "F35", "sec": "Revelação e proposta de valor", "t": "Se você fosse escolher hoje uma faculdade de Direito, o que te levaria a estudar na SKEMA?", "lines": 3}, {"k": "scale", "id": "f_chance", "code": "F36", "sec": "Revelação e proposta de valor", "t": "Qual a chance de você considerar a SKEMA, se estivesse decidindo hoje?", "lo": 0, "hi": 10, "a": "Nenhuma", "b": "Certamente consideraria"}, {"k": "multi", "id": "f_kchan", "code": "F37", "sec": "Canais e conteúdo", "t": "Que tipos de conteúdo de faculdades você costuma acompanhar quando pesquisa onde estudar?", "o": ["Instagram", "TikTok", "YouTube", "LinkedIn", "Podcasts", "Revistas, blogs ou newsletters", "Sites e guias de faculdades", "Canais de cursinhos e de professores", "Nenhum"], "hint": "Marque todas as que se aplicam.", "other": true, "rand": true}, {"k": "grid", "id": "f_kfmt", "code": "F38", "sec": "Canais e conteúdo", "t": "Quanto cada formato de conteúdo despertaria o seu interesse em uma faculdade de Direito?", "hint": "Marque uma opção em cada linha.", "rand": true, "rows": ["Podcast com advogados, juízes e profissionais da área", "Revista ou newsletter sobre carreira jurídica e mercado", "Perfil no Instagram com a rotina de alunos e egressos", "Vídeos curtos de professores explicando casos reais", "Eventos e palestras na escola ou no cursinho", "Conversas diretas com alunos e egressos"], "cols": ["Nenhum interesse", "Pouco", "Médio", "Muito", "Máximo"]}];
+var Q={};QS.forEach(function(q){Q[q.id]=q;});
 var FAC=CFG.FACULDADES||[];
 var P=new URLSearchParams(location.search);
 var DEMO=P.has('demo')||!CFG.SUPABASE_URL||/SEU-PROJETO/.test(CFG.SUPABASE_URL);
@@ -241,86 +250,98 @@ function h(t,a){var e=document.createElement(t);a=a||{};for(var k in a){if(k==='
   for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;e.appendChild(typeof c==='string'?document.createTextNode(c):c);}return e;}
 function $(id){return document.getElementById(id)}
 function clean(s){return String(s).replace(/\s*\((encerrar|exibir)[^)]*\)/i,'').trim()}
-function fixed(o){return /^(Outro|Outra|Nenhum|Nenhuma|Não sei|Ainda não sei|Não conheço)/i.test(o)}
+function fixed(o){return /^(Outro|Outra|Nenhum|Nenhuma|Não sei|Ainda não sei|Não conheço|Sou aluno)/i.test(o)}
 function isOther(o){return /^Outr[oa]$/i.test(o)}
 function excl(o){return /^(Nenhum|Nenhuma)/i.test(o)}
 function seedRand(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 var rnd=seedRand((Math.random()*1e9)|0);
 function shuffle(a){var r=a.slice(),i,j,t;for(i=r.length-1;i>0;i--){j=Math.floor(rnd()*(i+1));t=r[i];r[i]=r[j];r[j]=t}return r}
 function vib(){try{if(navigator.vibrate)navigator.vibrate(8)}catch(e){}}
+function base(id){return String(id).replace(/^[ef]_/,'')}
 var CHECK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>';
-var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
 /* ---------- estado ---------- */
-var A={};              // respostas
-var hist=[];           // pilha de passos visitados
-var cur=null;          // passo atual
-var t0=null;
-var token=0;
-var stable={};         // opções embaralhadas por pergunta (estáveis na sessão)
+var A={},hist=[],cur=null,t0=null,token=0,stable={},track=null; // track: 'e' (ensino médio/cursinho) ou 'f' (faculdade)
 
-/* ---------- passos ---------- */
-function ix(id,a){var q=Q[id],v=a[id];if(v==null)return -1;return optionsOf(q,a,true).indexOf(v)}
+/* ---------- trilhas ---------- */
+var HEAD=['intro','consent','pub'];
+var TR={
+ e:['e_age','auth','e_int','e_why_no','e_open','e_rank','e_origin','e_fwho','e_fmost','e_fweight','e_flaw','e_flike','e_fsaid','e_final','e_payer','e_top','e_aided','e_assoc','e_chan','@reveal','e_sk','@card','e_catt','e_ccrd','e_cplus','e_m1','e_chance','e_fear','e_kfmt','e_faixa','e_qual','e_fmt','e_reg','e_school'],
+ f:['f_age','auth','f_ies','f_sem','f_open','f_first','f_cons','f_rank','f_perf','f_tradfam','f_fwho','f_fmost','f_fweight','f_flaw','f_flike','f_fsaid','f_top','f_aided','f_assoc','f_price','f_disc','f_nodisc','f_val','f_fmt','f_nps','f_why','f_swap','f_swapwhy','@reveal','f_know','f_knowwhy','f_skprice','@card','f_catt','f_ccrd','f_cplus','f_m1','f_chance','f_kchan','f_kfmt']
+};
+var SEC_OF={intro:'Início',consent:'Início',auth:'Triagem'};
+var NOCOUNT={intro:1,consent:1,reveal:1,card:1,auth:1};
+function T(){return track||'e'}
+function mk(id){
+  var t=T();
+  if(id==='@reveal')return {id:t+'_reveal',type:'reveal',sec:t==='e'?'Marcas e conhecimento':'Revelação e proposta de valor'};
+  if(id==='@card')return {id:t+'_card',type:'card',sec:t==='e'?'Proposta de valor':'Revelação e proposta de valor'};
+  if(SEC_OF[id])return {id:id,type:id,sec:SEC_OF[id]};
+  var q=Q[id],b=base(id),ty=q.k;
+  if(b==='top')ty='top3';else if(b==='assoc')ty='assoc';else if(b==='cplus')ty='open2';
+  return {id:id,q:id,type:ty,sec:q.sec};
+}
+function agedKey(){return T()+'_age'}
+function isMinor(a){var v=a[agedKey()];return v==='16 anos ou menos'||v==='17 anos'||v==='17 anos ou menos'}
+function listIds(){return HEAD.concat(TR[T()])}
+function stepsList(){return listIds().map(mk)}
+function showOK(id,a,strict){
+  var t=T();
+  if(id==='auth')return a[agedKey()]?isMinor(a):false;
+  if(id==='e_why_no')return ix('e_int',a)===3;
+  if(id==='f_swapwhy')return a.f_swap?a.f_swap!=='Nunca':false;
+  if(id==='f_knowwhy')return a.f_know==='Considerei e descartei';
+  if(id==='f_nodisc')return a.f_disc?a.f_disc!=='Não':true;
+  if(base(id)==='fmost')return a[t+'_fwho']?mostOptions(a).length>0:true;
+  return true;
+}
+function visible(a){return stepsList().filter(function(s){return showOK(s.id,a)})}
+function nextOf(s){
+  var ids=listIds(),i=ids.indexOf(s.id.replace(/^[ef]_(reveal|card)$/,'@$1'));
+  for(i=i+1;i<ids.length;i++){var id=ids[i];if(showOK(id,A))return mk(id);delete A[id];delete A[id+'_outro'];}
+  return null;
+}
+
+/* ---------- opções ---------- */
+function ix(id,a){var q=Q[id],v=a[id];if(!q||v==null)return -1;return optionsOf(q,a,true).indexOf(v)}
 function optionsOf(q,a,raw){
-  if(q.id==='sit'||q.id==='age'||q.id==='int')return q.o.map(clean);
-  if(q.id==='aided'){var l=FAC.slice();var o=raw?l:(stable.aided=stable.aided||shuffle(l));return o.concat(['Nenhuma delas','Outra']);}
-  if(q.id==='fmost')return mostOptions(a);
+  var b=base(q.id),t=q.id.charAt(0);
+  if(b==='age'||b==='int')return q.o.map(clean);
+  if(b==='aided'){var o=raw?FAC.slice():(stable[q.id]=stable[q.id]||shuffle(FAC));return o.concat(['Nenhuma delas','Outra']);}
+  if(q.id==='f_ies'){return FAC.filter(function(x){return x!=='SKEMA'}).concat(['Outra faculdade privada','Outra faculdade pública','SKEMA'])}
+  if(q.id==='f_cons'){var own=a.f_ies,l=FAC.filter(function(x){return x!=='SKEMA'&&x!==own});if(!raw)l=(stable.f_cons=stable.f_cons||shuffle(l));return l.concat(['Nenhuma','Outra']);}
+  if(b==='fmost')return mostOptions(a);
   var o=q.o.map(clean);
   if(q.other&&o.indexOf('Outro')<0&&o.indexOf('Outra')<0)o=o.concat(['Outro']);
   if(q.rand&&!raw){if(!stable[q.id]){var f=o.filter(function(x){return!fixed(x)}),e=o.filter(fixed);stable[q.id]=shuffle(f).concat(e);}return stable[q.id];}
   return o;
 }
-var WHO_MAP=null;
 function mostOptions(a){
-  var who=a.fwho||[],mo=Q.fmost.o.map(clean),wo=Q.fwho.o.map(clean),out=[];
+  var t=T(),who=a[t+'_fwho']||[],mo=Q[t+'_fmost'].o.map(clean),wo=Q[t+'_fwho'].o.map(clean),out=[];
   who.forEach(function(w){var i=wo.indexOf(w);if(i===0)return;if(i>0&&mo[i])out.push(mo[i]);else if(isOther(w))out.push('Outro');});
   return out;
 }
-function isMinor(a){var v=a.age;return v==='16 anos ou menos'||v==='17 anos'}
-var STEPS=[
- {id:'intro',type:'intro',sec:'Início'},
- {id:'consent',type:'consent',sec:'Início'},
- {q:'sit'},{q:'age'},
- {id:'auth',type:'auth',sec:'Triagem',show:function(a){return isMinor(a)}},
- {q:'int'},
- {q:'why_no',show:function(a){return ix('int',a)===3}},
- {q:'open'},{q:'rank'},{q:'origin'},
- {q:'fwho'},{q:'fmost',show:function(a){return mostOptions(a).length>0}},{q:'fweight'},{q:'flaw'},{q:'flike'},{q:'fsaid'},{q:'final'},{q:'payer'},
- {q:'top'},{q:'aided'},{q:'assoc'},{q:'chan'},
- {id:'reveal',type:'reveal',sec:'Marcas e conhecimento'},
- {q:'sk'},
- {id:'card',type:'card',sec:'Proposta de valor'},
- {q:'catt'},{q:'ccrd'},{q:'cplus'},{q:'m1'},{q:'chance'},{q:'fear'},
- {q:'kfmt'},{q:'faixa'},{q:'qual'},{q:'fmt'},{q:'reg'},{q:'school'}
-];
-STEPS.forEach(function(s,i){s.n=i;if(s.q){var q=Q[s.q];s.id=s.q;s.sec=q.sec;s.type=q.id==='top'?'top3':q.id==='assoc'?'assoc':q.id==='cplus'?'open2':q.k;}});
-var NOCOUNT={intro:1,consent:1,reveal:1,card:1,auth:1};
-function visible(a){return STEPS.filter(function(s){
-  if(s.id==='why_no')return ix('int',a)===3;
-  if(s.id==='auth')return a.age?isMinor(a):false;
-  if(s.id==='fmost')return a.fwho?mostOptions(a).length>0:true;
-  return true;})}
-function nextOf(s){
-  for(var i=s.n+1;i<STEPS.length;i++){var t=STEPS[i];if(!t.show||t.show(A))return t;delete A[t.id];delete A[t.id+'_outro'];}return null;
-}
 
 /* ---------- navegação ---------- */
-var stage=$('stage'),bNext=$('bNext'),bBack=$('bBack'),kb=$('kb');
-var secs=[];STEPS.forEach(function(s){if(s.sec!=='Início'&&secs.indexOf(s.sec)<0)secs.push(s.sec)});
-var SHORT={'Triagem':'Triagem','Como você escolhe':'Como você escolhe','Família e tradição':'Família','Marcas e conhecimento':'Marcas','Proposta de valor':'Proposta','Canais e conteúdo':'Canais','Preço e apoio financeiro':'Preço','Perfil':'Perfil'};
-var rail=$('rail');secs.forEach(function(s){rail.appendChild(h('li',{'data-s':s},h('i'),SHORT[s]||s))});
-function setRail(sec){var on=false,items=[].slice.call(rail.children);var idx=secs.indexOf(sec);items.forEach(function(li,i){li.className=idx<0?'':(i<idx?'done':i===idx?'cur':'')});$('secTop').textContent=idx<0?'':(SHORT[sec]||sec)}
+var stage=$('stage'),bNext=$('bNext'),bBack=$('bBack'),kb=$('kb'),rail=$('rail');
+var SHORT={'Triagem':'Triagem','Como você escolhe':'Como você escolhe','Família e tradição':'Família','Marcas e conhecimento':'Marcas','Proposta de valor':'Proposta','Canais e conteúdo':'Canais','Preço e apoio financeiro':'Preço','Perfil':'Perfil','A escolha da faculdade':'A escolha','Marcas e posicionamento':'Marcas','Preço':'Preço','Experiência na faculdade':'Experiência','Revelação e proposta de valor':'Proposta','Início':'Início'};
+var secs=[],railFor=null;
+function buildRail(){
+  var t=T();if(railFor===t)return;railFor=t;secs=[];rail.innerHTML='';
+  stepsList().forEach(function(s){if(s.sec!=='Início'&&secs.indexOf(s.sec)<0)secs.push(s.sec)});
+  secs.forEach(function(x){rail.appendChild(h('li',{},h('i'),SHORT[x]||x))});
+}
+function setRail(sec){var idx=secs.indexOf(sec);[].forEach.call(rail.children,function(li,i){li.className=idx<0?'':(i<idx?'done':i===idx?'cur':'')});$('secTop').textContent=idx<0?'':(SHORT[sec]||sec)}
 function setBar(){var v=visible(A),n=v.length,i=cur?v.map(function(s){return s.id}).indexOf(cur.id):0;if(i<0)i=0;$('bar').style.width=Math.max(3,Math.round(i/Math.max(1,n-1)*100))+'%'}
-function qnum(s){var v=visible(A).filter(function(x){return!NOCOUNT[x.id]});var i=v.map(function(x){return x.id}).indexOf(s.id);return [i+1,v.length]}
+function qnum(s){var v=visible(A).filter(function(x){return!NOCOUNT[x.type]});var i=v.map(function(x){return x.id}).indexOf(s.id);return [i+1,v.length]}
 
 function go(s,back){
   token++;cur=s;
   if(hist[hist.length-1]!==s.id&&!back)hist.push(s.id);
-  stage.innerHTML='';
+  buildRail();stage.innerHTML='';
   var el=render(s);if(back)el.classList.add('back');
-  stage.appendChild(el);
-  setRail(s.sec);setBar();
-  bBack.hidden=!(hist.length>1&&s.id!=='intro'&&s.id!=='reveal'&&s.id!=='consent');
+  stage.appendChild(el);setRail(s.sec);setBar();
+  bBack.hidden=!(hist.length>1&&s.type!=='intro'&&s.type!=='reveal'&&s.type!=='consent');
   window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
   try{stage.focus({preventScroll:true})}catch(e){}
 }
@@ -328,23 +349,24 @@ function next(){
   if(!cur)return;
   var v=validate(cur);if(v!==true){showErr(v);return}
   if(cur.id==='consent'&&!t0)t0=Date.now();
-  if(cur.id==='sit'&&ix('sit',A)===2)return finish('fora_do_publico');
+  if(cur.id==='pub'){var i=optionsOf(Q.pub,A,true).indexOf(A.pub);if(i===3)return finish('fora_do_publico');var nt=i<2?'e':'f';if(track&&track!==nt){clearTrack()}track=nt;buildRail()}
   if(cur.id==='auth'&&A.auth==='Ainda não tenho')return finish('sem_autorizacao');
-  if(cur.id==='why_no')return finish('nao_pretende_direito');
+  if(cur.id==='e_why_no')return finish('nao_pretende_direito');
+  if(cur.id==='f_ies'&&A.f_ies==='SKEMA')return finish('aluno_skema');
   var n=nextOf(cur);if(!n)return finish('completo');go(n);
 }
+function clearTrack(){Object.keys(A).forEach(function(k){if(/^[ef]_/.test(k)||k==='auth')delete A[k]});stable={};railFor=null;hist=hist.slice(0,hist.indexOf('pub')+1)}
 function back(){
   if(hist.length<2)return;hist.pop();var id=hist[hist.length-1];
-  var s=STEPS.filter(function(x){return x.id===id})[0];if(s.id==='reveal'||s.id==='card'&&false){}
-  // pula tela de revelação ao voltar
-  if(s.id==='reveal'){hist.pop();s=STEPS.filter(function(x){return x.id===hist[hist.length-1]})[0];}
-  go(s,true);
+  if(/_reveal$/.test(id)){hist.pop();id=hist[hist.length-1]}
+  var s=stepsList().filter(function(x){return x.id===id})[0]||mk(id);go(s,true);
 }
 bNext.addEventListener('click',next);bBack.addEventListener('click',back);
 function showErr(m){var e=stage.querySelector('.err');if(e){e.innerHTML='';e.appendChild(h('b',{text:m}))}vib()}
-function setNext(label,enabled){bNext.firstChild.nodeValue=label+' ';bNext.disabled=enabled===false}
+function setNext(label){bNext.firstChild.nodeValue=label+' '}
 
 /* ---------- validação ---------- */
+function gridRows(q){return q.rows}
 function validate(s){
   var q=Q[s.id],t=s.type,v=A[s.id];
   if(t==='consent')return A.consent?true:'Marque a opção para continuar.';
@@ -354,13 +376,13 @@ function validate(s){
   if(t==='multi')return v&&v.length?true:'Marque pelo menos uma opção.';
   if(t==='rank')return v&&v.length===3?true:'Escolha exatamente 3 fatores, em ordem de importância.';
   if(t==='scale')return v!=null?true:'Escolha uma nota para continuar.';
-  if(t==='grid'){var rows=gridRows(q);var g=v||{};for(var i=0;i<rows.length;i++)if(!g[rows[i]])return 'Responda todas as linhas para continuar.';return true}
+  if(t==='grid'){var g=v||{},rows=gridRows(q);for(var i=0;i<rows.length;i++)if(!g[rows[i]])return 'Responda todas as linhas para continuar.';return true}
   return true;
 }
 
 /* ---------- renderização ---------- */
 function head(s,title,hint){
-  var q=Q[s.id],nn=!NOCOUNT[s.id]&&q?qnum(s):null;
+  var q=Q[s.id],nn=!NOCOUNT[s.type]&&q?qnum(s):null;
   var ey=h('div',{class:'eyebrow'},(SHORT[s.sec]||s.sec),nn?h('span',{text:'· pergunta '+nn[0]+' de '+nn[1]}):null);
   return [ey,h('h1',{class:'q',text:title}),hint?h('p',{class:'hint',text:hint}):null];
 }
@@ -372,83 +394,76 @@ function wrap(s,parts,body){
   return d;
 }
 function reread(){return h('details',{class:'again'},h('summary',{text:'Reler a proposta'}),h('p',{text:'Curso de Direito da SKEMA Business School. '+CARD}))}
-
 function render(s){
-  var t=s.type,q=Q[s.id],el;
-  kb.textContent='ou pressione Enter ↵';
-  setNext('Continuar',true);
-  if(t==='intro'){el=viewIntro(s)}
-  else if(t==='consent'){el=viewConsent(s)}
-  else if(t==='auth'){el=viewAuth(s)}
-  else if(t==='reveal'){el=viewReveal(s)}
-  else if(t==='card'){el=viewCard(s)}
-  else if(t==='single'){el=wrap(s,head(s,q.t,q.hint),wSingle(s,q))}
-  else if(t==='multi'){el=wrap(s,head(s,q.t,q.hint),wMulti(s,q))}
-  else if(t==='rank'){el=wrap(s,head(s,q.t,q.hint),wRank(s,q))}
-  else if(t==='scale'){el=wrap(s,head(s,q.t,q.hint),wScale(s,q))}
-  else if(t==='grid'){el=wrap(s,head(s,q.t,q.hint),wGrid(s,q))}
-  else if(t==='open'){el=wrap(s,head(s,q.t,q.hint),wOpen(s,q))}
-  else if(t==='top3'){el=wrap(s,head(s,q.t,'Escreva o nome das faculdades que vêm à sua cabeça, sem pesquisar. Pode deixar em branco.'),wTop(s,q))}
-  else if(t==='open2'){el=wrap(s,head(s,q.t,null),wOpen2(s,q))}
-  else if(t==='assoc'){el=wrap(s,head(s,q.t,'Escreva o nome da faculdade ou “nenhuma”. Pode pular as que não souber.'),wAssoc(s,q))}
+  var t=s.type,q=Q[s.id],b=q?base(q.id):'',el;
+  kb.textContent='ou pressione Enter ↵';setNext('Continuar');
+  if(t==='intro')el=viewIntro();
+  else if(t==='consent')el=viewConsent();
+  else if(t==='auth')el=viewAuth();
+  else if(t==='reveal')el=viewReveal();
+  else if(t==='card')el=viewCard();
+  else if(t==='single')el=wrap(s,head(s,q.t,q.hint),wSingle(s,q));
+  else if(t==='multi')el=wrap(s,head(s,q.t,q.hint),wMulti(s,q));
+  else if(t==='rank')el=wrap(s,head(s,q.t,q.hint),wRank(s,q));
+  else if(t==='scale')el=wrap(s,head(s,q.t,q.hint),wScale(s,q));
+  else if(t==='grid')el=wrap(s,head(s,q.t,q.hint),wGrid(s,q));
+  else if(t==='open')el=wrap(s,head(s,q.t,q.hint),wOpen(s,q));
+  else if(t==='money')el=wrap(s,head(s,q.t,q.hint),wMoney(s,q));
+  else if(t==='top3')el=wrap(s,head(s,q.t,'Escreva o nome das faculdades que vêm à sua cabeça, sem pesquisar. Pode deixar em branco.'),wTop(s,q));
+  else if(t==='open2')el=wrap(s,head(s,q.t,null),wOpen2(s,q));
+  else if(t==='assoc')el=wrap(s,head(s,q.t,'Escreva o nome da faculdade ou “nenhuma”. Pode pular as que não souber.'),wAssoc(s,q));
   return el;
 }
 
-function viewIntro(s){
+function viewIntro(){
   var d=h('section',{class:'step hero'});
-  var ey=h('div',{class:'eyebrow'},'Pesquisa · 3º ano e cursinho');d.appendChild(ey);
-  var t=h('h1');t.appendChild(document.createTextNode('Como você '));t.appendChild(h('em',{text:'escolhe'}));t.appendChild(document.createTextNode(' a sua faculdade?'));d.appendChild(t);
-  d.appendChild(h('p',{class:'lead',text:'Uma pesquisa rápida para entender como estudantes como você decidem onde estudar. Aqui não existe resposta certa ou errada, só a sua opinião.'}));
+  d.appendChild(h('div',{class:'eyebrow'},'Pesquisa · 3º ano, cursinho e Direito'));
+  var t=h('h1');t.appendChild(document.createTextNode('Como você '));t.appendChild(h('em',{text:'escolhe'}));t.appendChild(document.createTextNode(' a faculdade de Direito?'));d.appendChild(t);
+  d.appendChild(h('p',{class:'lead',text:'Uma pesquisa rápida para entender como estudantes decidem onde estudar Direito. Não existe resposta certa ou errada, só a sua opinião.'}));
   d.appendChild(h('div',{class:'pills'},h('div',{class:'pill'},h('i'),'Cerca de 10 minutos'),h('div',{class:'pill'},h('i'),'100% anônima'),h('div',{class:'pill'},h('i'),'Feita pela SKEMA Consultoria Júnior')));
-  d.appendChild(h('div',{class:'err'}));
-  setNext('Começar',true);return d;
+  d.appendChild(h('div',{class:'err'}));setNext('Começar');return d;
 }
-function viewConsent(s){
+function viewConsent(){
   var d=h('section',{class:'step consent'});
   d.appendChild(h('div',{class:'eyebrow'},'Antes de começar'));
   d.appendChild(h('h1',{class:'q',text:'Combinado rápido'}));
   var ul=h('ul',{class:'body'});
-  var li=[
-   'A pesquisa é anônima. Não pedimos nome, e-mail, telefone nem o nome da sua escola.',
+  ['A pesquisa é anônima. Não pedimos nome, e-mail, telefone nem o nome da sua escola ou matrícula.',
    'A participação é voluntária e você pode parar quando quiser. As respostas são analisadas em conjunto, nunca individualmente.',
    'Se você tem menos de 18 anos, precisa da autorização de um responsável ou da sua escola.',
-   'Mais adiante, vamos contar para quem a pesquisa está sendo feita.'];
-  li.forEach(function(t,i){var l=h('li',{style:'--i:'+i});l.textContent=t;ul.appendChild(l)});
+   'Mais adiante, vamos contar para quem a pesquisa está sendo feita.'].forEach(function(t,i){var l=h('li',{style:'--i:'+i});l.textContent=t;ul.appendChild(l)});
   d.appendChild(ul);
   var f=h('p',{class:'fine'});f.appendChild(document.createTextNode('O aviso de privacidade completo, com a identificação da controladora dos dados, está '));
-  var a=h('a',{href:CFG.AVISO_URL||'#',target:'_blank',rel:'noopener',text:'aqui'});f.appendChild(a);
+  f.appendChild(h('a',{href:CFG.AVISO_URL||'#',target:'_blank',rel:'noopener',text:'aqui'}));
   f.appendChild(document.createTextNode('. Os dados são tratados conforme a LGPD (Lei nº 13.709/2018), só para esta pesquisa, e serão eliminados ao final do projeto. Dúvidas: '+(CFG.CONTATO||'')+'.'));d.appendChild(f);
-  var b=h('div',{class:'body'});var o=h('button',{type:'button',class:'opt'+(A.consent?' on':''),role:'checkbox','aria-checked':!!A.consent},h('span',{class:'ck',html:''}),h('span',{class:'lb',text:'Li e quero participar da pesquisa'}));
-  o.querySelector('.ck').innerHTML=CHECK;o.classList.add('multi');
+  var b=h('div',{class:'body'}),o=h('button',{type:'button',class:'opt multi'+(A.consent?' on':''),role:'checkbox','aria-checked':!!A.consent},h('span',{class:'ck'}),h('span',{class:'lb',text:'Li e quero participar da pesquisa'}));
+  o.querySelector('.ck').innerHTML=CHECK;
   o.addEventListener('click',function(){A.consent=!A.consent;o.classList.toggle('on',!!A.consent);o.setAttribute('aria-checked',!!A.consent);vib()});
-  b.appendChild(o);d.appendChild(b);d.appendChild(h('div',{class:'err',role:'alert'}));
-  setNext('Vamos lá',true);return d;
+  b.appendChild(o);d.appendChild(b);d.appendChild(h('div',{class:'err',role:'alert'}));setNext('Vamos lá');return d;
 }
-function viewAuth(s){
-  var d=wrap(s,[h('div',{class:'eyebrow'},'Triagem'),h('h1',{class:'q',text:'Você tem autorização de um responsável ou da sua escola para participar?'}),h('p',{class:'hint',text:'Como você tem menos de 18 anos, precisamos dessa confirmação. Nenhum dado seu é coletado.'})],null);
-  var b=d.querySelector('.body');var opts=h('div',{class:'opts'});
+function viewAuth(){
+  var d=wrap({type:'auth',id:'auth'},[h('div',{class:'eyebrow'},'Triagem'),h('h1',{class:'q',text:'Você tem autorização de um responsável ou da sua escola para participar?'}),h('p',{class:'hint',text:'Como você tem menos de 18 anos, precisamos dessa confirmação. Nenhum dado seu é coletado.'})],null);
+  var opts=h('div',{class:'opts'});
   ['Sim, tenho','Ainda não tenho'].forEach(function(o,i){opts.appendChild(optBtn(o,i,A.auth===o,false,function(){A.auth=o;paint(opts,function(x){return x===o});scheduleNext(o==='Sim, tenho'?420:0)}))});
-  b.appendChild(opts);return d;
+  d.querySelector('.body').appendChild(opts);return d;
 }
-function viewReveal(s){
+function viewReveal(){
   var d=h('section',{class:'reveal'});
   d.appendChild(h('div',{class:'in'},h('img',{src:'assets/logo_full_branca.png',alt:'SKEMA Consultoria Jr.'}),
     h('h2',{text:'Esta pesquisa é feita pela SKEMA Consultoria Júnior, a pedido da SKEMA Business School.'}),
     h('p',{text:'A partir daqui, algumas perguntas falam da SKEMA. Continue respondendo com sinceridade: queremos a sua opinião de verdade.'})));
-  setNext('Continuar',true);return d;
+  setNext('Continuar');return d;
 }
-function viewCard(s){
+function viewCard(){
   var d=h('section',{class:'step t-card'});
   d.appendChild(h('div',{class:'eyebrow'},'Proposta de valor',h('span',{text:'· leia com calma'})));
-  var c=h('div',{class:'cardp'},h('small',{text:'Curso de Direito'}),h('h2',{text:'SKEMA Business School'}),h('p',{text:CARD}));
-  d.appendChild(c);
+  d.appendChild(h('div',{class:'cardp'},h('small',{text:'Curso de Direito'}),h('h2',{text:'SKEMA Business School'}),h('p',{text:CARD})));
   d.appendChild(h('p',{class:'hint',text:'Na próxima tela, vamos perguntar o que você achou. Você poderá reler o texto sempre que quiser.'}));
-  d.appendChild(h('div',{class:'err'}));
-  setNext('Li, vamos lá',true);return d;
+  d.appendChild(h('div',{class:'err'}));setNext('Li, vamos lá');return d;
 }
 
 function letter(i){return String.fromCharCode(65+i)}
-function optBtn(label,i,on,multi,fn,kind){
+function optBtn(label,i,on,multi,fn){
   var b=h('button',{type:'button',class:'opt'+(on?' on':'')+(multi?' multi':''),role:multi?'checkbox':'radio','aria-checked':!!on,style:'--i:'+i,'data-v':label});
   b.appendChild(h('span',{class:'k',text:letter(i)}));b.appendChild(h('span',{class:'lb',text:label}));
   var ck=h('span',{class:'ck'});ck.innerHTML=CHECK;b.appendChild(ck);
@@ -457,22 +472,22 @@ function optBtn(label,i,on,multi,fn,kind){
 function paint(box,test){[].forEach.call(box.querySelectorAll('.opt'),function(b){var on=test(b.getAttribute('data-v'));b.classList.toggle('on',on);b.setAttribute('aria-checked',on)})}
 var tm=null;
 function scheduleNext(ms){clearTimeout(tm);if(ms<=0)return;var tk=token;tm=setTimeout(function(){if(tk===token)next()},ms)}
-function otherBox(q,key){
+function otherBox(key){
   var w=h('div',{class:'other'});var i=h('input',{class:'txt',type:'text',maxlength:'80',placeholder:'Escreva aqui',value:A[key]||'','aria-label':'Outro: especifique'});
   i.addEventListener('input',function(){A[key]=i.value});w.appendChild(i);w.hidden=true;return w;
 }
 function wSingle(s,q){
   var opts=optionsOf(q,A),box=h('div',{class:'opts'+(opts.length>6?' two':''),role:'radiogroup','aria-label':q.t});
   if(A[q.id]&&opts.indexOf(A[q.id])<0)delete A[q.id];
-  var ok=q.id+'_outro',ob=otherBox(q,ok);
+  var ob=otherBox(q.id+'_outro');
   function sync(){ob.hidden=!isOther(A[q.id]||'');}
   opts.forEach(function(o,i){box.appendChild(optBtn(o,i,A[q.id]===o,false,function(v){A[q.id]=v;paint(box,function(x){return x===v});sync();
-    if(isOther(v)){setTimeout(function(){ob.querySelector('input').focus()},60)}else{scheduleNext(q.id==='sit'||q.id==='int'?520:440)}}))});
+    if(isOther(v)){setTimeout(function(){ob.querySelector('input').focus()},60)}else{scheduleNext(q.id==='pub'||base(q.id)==='int'?520:440)}}))});
   var w=h('div');w.appendChild(box);w.appendChild(ob);sync();return w;
 }
 function wMulti(s,q){
   var opts=optionsOf(q,A),box=h('div',{class:'opts'+(opts.length>6?' two':''),role:'group','aria-label':q.t});
-  var ok=q.id+'_outro',ob=otherBox(q,ok);A[q.id]=A[q.id]||[];
+  var ob=otherBox(q.id+'_outro');A[q.id]=(A[q.id]||[]).filter(function(x){return opts.indexOf(x)>=0});
   function sync(){ob.hidden=A[q.id].filter(isOther).length===0;}
   opts.forEach(function(o,i){box.appendChild(optBtn(o,i,A[q.id].indexOf(o)>=0,true,function(v){
     var a=A[q.id],k=a.indexOf(v);
@@ -485,35 +500,37 @@ function wRank(s,q){
   var opts=optionsOf(q,A),box=h('div',{class:'opts two',role:'group','aria-label':q.t});A[q.id]=A[q.id]||[];
   function paintR(){[].forEach.call(box.querySelectorAll('.opt'),function(b){var i=A[q.id].indexOf(b.getAttribute('data-v'));b.classList.toggle('on',i>=0);b.querySelector('.rk').textContent=i>=0?(i+1)+'º':''})}
   opts.forEach(function(o,i){var b=h('button',{type:'button',class:'opt',role:'checkbox',style:'--i:'+i,'data-v':o},h('span',{class:'rk'}),h('span',{class:'lb',text:o}));
-    b.addEventListener('click',function(){vib();clearTimeout(tm);var a=A[q.id],k=a.indexOf(o);if(k>=0)a.splice(k,1);else if(a.length<3)a.push(o);else{showErr('Já são 3. Toque em um deles para trocar.');return}paintR();var e=stage.querySelector('.err');if(e)e.innerHTML='';});
+    b.addEventListener('click',function(){vib();var a=A[q.id],k=a.indexOf(o);if(k>=0)a.splice(k,1);else if(a.length<3)a.push(o);else{showErr('Já são 3. Toque em um deles para trocar.');return}paintR();var e=stage.querySelector('.err');if(e)e.innerHTML=''});
     box.appendChild(b)});
   paintR();return box;
 }
 function wScale(s,q){
-  var n=q.hi-q.lo+1,box=h('div',{class:'scale',style:'--n:'+n,role:'radiogroup','aria-label':q.t});
-  for(var v=q.lo;v<=q.hi;v++)(function(v){var b=h('button',{type:'button',class:'sc'+(A[q.id]===v?' on':''),role:'radio','aria-checked':A[q.id]===v,style:'--i:'+(v-q.lo),text:String(v),'data-v':v});
-    b.addEventListener('click',function(){vib();A[q.id]=v;[].forEach.call(box.children,function(x){x.classList.toggle('on',+x.getAttribute('data-v')===v);x.setAttribute('aria-checked',+x.getAttribute('data-v')===v)});scheduleNext(560)});box.appendChild(b)})(v);
-  var w=h('div');if(/^(catt|chance)$/.test(q.id))w.appendChild(reread());w.appendChild(box);w.appendChild(h('div',{class:'ends'},h('span',{text:q.a}),h('span',{text:q.b})));return w;
+  var n=q.hi-q.lo+1,box=h('div',{class:'scale',style:'--n:'+n,role:'radiogroup','aria-label':q.t}),b=base(q.id);
+  for(var v=q.lo;v<=q.hi;v++)(function(v){var bt=h('button',{type:'button',class:'sc'+(A[q.id]===v?' on':''),role:'radio','aria-checked':A[q.id]===v,style:'--i:'+(v-q.lo),text:String(v),'data-v':v});
+    bt.addEventListener('click',function(){vib();A[q.id]=v;[].forEach.call(box.children,function(x){var on=+x.getAttribute('data-v')===v;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)});scheduleNext(560)});box.appendChild(bt)})(v);
+  var w=h('div');if(/^(catt|chance)$/.test(b))w.appendChild(reread());w.appendChild(box);w.appendChild(h('div',{class:'ends'},h('span',{text:q.a}),h('span',{text:q.b})));return w;
 }
-function gridRows(q){return q.rows}
 function wGrid(s,q){
   var rows=q.rows;if(q.rand){stable['g'+q.id]=stable['g'+q.id]||shuffle(rows);rows=stable['g'+q.id]}
-  A[q.id]=A[q.id]||{};var box=h('div',{class:'grid'}),cols=q.cols;
+  A[q.id]=A[q.id]||{};var box=h('div',{class:'grid'}),cols=q.cols,num=/^\d+$/.test(cols[0]),nc=cols.length+(q.na?1:0);
   rows.forEach(function(r,ri){
-    var g=h('div',{class:'gr'+(A[q.id][r]?' done':''),style:'--i:'+ri});g.appendChild(h('p',{text:r}));
-    var ch=h('div',{class:'chips',role:'radiogroup','aria-label':r});
-    cols.forEach(function(c,ci){var b=h('button',{type:'button',class:'chip'+(A[q.id][r]===ci+1?' on':''),role:'radio','aria-checked':A[q.id][r]===ci+1,'data-v':ci+1},h('b',{text:String(ci+1)}),h('small',{text:c}));
-      b.addEventListener('click',function(){vib();A[q.id][r]=ci+1;[].forEach.call(ch.children,function(x){var on=+x.getAttribute('data-v')===ci+1;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)});g.classList.add('done');
-        var done=rows.every(function(x){return A[q.id][x]});if(!done){var nx=g.nextElementSibling;while(nx&&nx.classList.contains('done'))nx=nx.nextElementSibling;if(nx&&!reduce)nx.scrollIntoView({behavior:'smooth',block:'center'})}else{var e=stage.querySelector('.err');if(e)e.innerHTML=''}});
-      ch.appendChild(b)});
-    g.appendChild(ch);g.appendChild(h('div',{class:'gends'},h('span',{text:'1 · '+cols[0]}),h('span',{text:'5 · '+cols[4]})));box.appendChild(g)});
-  var w=h('div');if(/^ccrd$/.test(q.id))w.appendChild(reread());w.appendChild(box);return w;
+    var g=h('div',{class:'gr'+(A[q.id][r]?' done':''),style:'--i:'+Math.min(ri,8)});g.appendChild(h('p',{text:r}));
+    var ch=h('div',{class:'chips',style:'--c:'+nc,role:'radiogroup','aria-label':r});
+    function pick(val,b){vib();A[q.id][r]=val;[].forEach.call(ch.children,function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)});g.classList.add('done');
+      var done=rows.every(function(x){return A[q.id][x]});
+      if(!done){var nx=g.nextElementSibling;while(nx&&nx.classList.contains('done'))nx=nx.nextElementSibling;if(nx&&!reduce)nx.scrollIntoView({behavior:'smooth',block:'center'})}else{var e=stage.querySelector('.err');if(e)e.innerHTML=''}}
+    cols.forEach(function(c,ci){var b=h('button',{type:'button',class:'chip'+(A[q.id][r]===ci+1?' on':''),role:'radio','aria-checked':A[q.id][r]===ci+1},h('b',{text:String(ci+1)}),num?null:h('small',{text:c}));
+      b.addEventListener('click',function(){pick(ci+1,b)});ch.appendChild(b)});
+    if(q.na){var nb=h('button',{type:'button',class:'chip'+(A[q.id][r]==='nao_sei'?' on':''),role:'radio'},h('b',{text:'?'}),h('small',{text:q.na}));nb.addEventListener('click',function(){pick('nao_sei',nb)});ch.appendChild(nb)}
+    g.appendChild(ch);g.appendChild(h('div',{class:'gends'},h('span',{text:num?'1 = pior':'1 · '+cols[0]}),h('span',{text:num?'5 = melhor':'5 · '+cols[4]})));box.appendChild(g)});
+  var w=h('div');if(base(q.id)==='ccrd')w.appendChild(reread());w.appendChild(box);return w;
 }
 function wOpen(s,q){
   var ta=h('textarea',{class:'ta',maxlength:'600',rows:'4',placeholder:'Escreva aqui com as suas palavras…','aria-label':q.t});ta.value=A[q.id]||'';
   var c=h('div',{class:'cnt'});
-  function up(){A[q.id]=ta.value;c.textContent=ta.value.length+' / 600';setNext(ta.value.trim()?'Continuar':'Pular',true)}
-  ta.addEventListener('input',up);var w=h('div');if(q.id==='m1')w.appendChild(reread());w.appendChild(ta);w.appendChild(c);var tk=token;up();setTimeout(function(){if(tk===token&&!matchMedia('(pointer:coarse)').matches)ta.focus()},650);
+  function up(){A[q.id]=ta.value;c.textContent=ta.value.length+' / 600';setNext(ta.value.trim()?'Continuar':'Pular')}
+  ta.addEventListener('input',up);var w=h('div');if(base(q.id)==='m1')w.appendChild(reread());w.appendChild(ta);w.appendChild(c);
+  var tk=token;up();setTimeout(function(){if(tk===token&&!matchMedia('(pointer:coarse)').matches)ta.focus()},650);
   kb.textContent='Ctrl + Enter para continuar';return w;
 }
 function wOpen2(s,q){
@@ -521,22 +538,35 @@ function wOpen2(s,q){
   [['mais','O que mais chamou a sua atenção?'],['menos','E o que menos chamou?']].forEach(function(p){
     w.appendChild(h('label',{class:'lab',text:p[1],for:'f_'+p[0]}));
     var ta=h('textarea',{class:'ta',id:'f_'+p[0],maxlength:'400',rows:'3',placeholder:'Escreva aqui…',style:'min-height:92px'});ta.value=A[q.id][p[0]]||'';
-    ta.addEventListener('input',function(){A[q.id][p[0]]=ta.value;setNext((A[q.id].mais||'').trim()||(A[q.id].menos||'').trim()?'Continuar':'Pular',true)});w.appendChild(ta)});
-  setNext((A[q.id].mais||A[q.id].menos)?'Continuar':'Pular',true);return w;
+    ta.addEventListener('input',function(){A[q.id][p[0]]=ta.value;setNext((A[q.id].mais||'').trim()||(A[q.id].menos||'').trim()?'Continuar':'Pular')});w.appendChild(ta)});
+  setNext((A[q.id].mais||A[q.id].menos)?'Continuar':'Pular');return w;
 }
 function wTop(s,q){
   A[q.id]=A[q.id]||['','',''];var box=h('div',{class:'fields'});
   [0,1,2].forEach(function(i){var inp=h('input',{class:'txt',type:'text',maxlength:'60',placeholder:(i+1)+'ª faculdade','aria-label':(i+1)+'ª faculdade',value:A[q.id][i]||''});
-    inp.addEventListener('input',function(){A[q.id][i]=inp.value;setNext(A[q.id].join('').trim()?'Continuar':'Pular',true)});box.appendChild(h('div',{class:'field'},h('b',{text:String(i+1)}),inp))});
-  setNext(A[q.id].join('').trim()?'Continuar':'Pular',true);return box;
+    inp.addEventListener('input',function(){A[q.id][i]=inp.value;setNext(A[q.id].join('').trim()?'Continuar':'Pular')});box.appendChild(h('div',{class:'field'},h('b',{text:String(i+1)}),inp))});
+  setNext(A[q.id].join('').trim()?'Continuar':'Pular');return box;
 }
 function wAssoc(s,q){
   A[q.id]=A[q.id]||{};var box=h('div',{class:'grid'});
   q.rows.forEach(function(r,i){var inp=h('input',{class:'txt',type:'text',maxlength:'60',placeholder:'Nome da faculdade ou “nenhuma”','aria-label':r,value:A[q.id][r]||''});
     inp.addEventListener('input',function(){A[q.id][r]=inp.value});
     var sug=h('div',{class:'sug'});FAC.filter(function(f){return f!=='SKEMA'}).slice(0,5).concat(['Nenhuma']).forEach(function(f){var b=h('button',{type:'button',text:f});b.addEventListener('click',function(){inp.value=f;A[q.id][r]=f;vib()});sug.appendChild(b)});
-    box.appendChild(h('div',{class:'as',style:'--i:'+i},h('p',{text:r}),inp,sug))});
-  setNext('Continuar',true);return box;
+    box.appendChild(h('div',{class:'as',style:'--i:'+Math.min(i,8)},h('p',{text:r}),inp,sug))});
+  return box;
+}
+function wMoney(s,q){
+  A[q.id]=A[q.id]||{};var w=h('div'),skip=/skprice/.test(q.id)?'Não faço ideia':'Prefiro não informar';
+  function refresh(){setNext(Object.keys(A[q.id]).length?'Continuar':'Pular')}
+  q.rows.forEach(function(r){
+    w.appendChild(h('label',{class:'lab',text:r}));
+    var inp=h('input',{class:'txt',type:'text',inputmode:'numeric',maxlength:'6',placeholder:'0','aria-label':r}),chip=h('button',{type:'button',class:'chip2',text:skip}),cv=A[q.id][r];
+    if(typeof cv==='number')inp.value=cv;if(cv==='nao_informa')chip.classList.add('on');
+    inp.addEventListener('input',function(){var v=inp.value.replace(/\D/g,'');inp.value=v;chip.classList.remove('on');if(v)A[q.id][r]=+v;else delete A[q.id][r];refresh()});
+    chip.addEventListener('click',function(){vib();var on=!chip.classList.contains('on');chip.classList.toggle('on',on);if(on){A[q.id][r]='nao_informa';inp.value=''}else delete A[q.id][r];refresh()});
+    w.appendChild(h('div',{class:'mrow'},h('div',{class:'box'},h('span',{text:'R$'}),inp),h('span',{class:'hint',style:'margin:0',text:'por mês'}),chip));
+  });
+  refresh();return w;
 }
 
 /* ---------- teclado ---------- */
@@ -545,56 +575,57 @@ document.addEventListener('keydown',function(e){
   var tg=e.target&&e.target.tagName,inText=tg==='TEXTAREA'||(tg==='INPUT'&&e.target.type==='text');
   if(e.key==='Enter'){
     if(tg==='TEXTAREA'&&!e.ctrlKey)return;
-    if(tg==='BUTTON'&&e.target.classList.contains('opt'))return;
     if(tg==='BUTTON'&&e.target!==bNext)return;
     e.preventDefault();if(!bNext.disabled)next();return;
   }
   if(inText)return;
   var k=e.key.toUpperCase();
   if(k.length===1&&k>='A'&&k<='Z'){var b=stage.querySelectorAll('.opt')[k.charCodeAt(0)-65];if(b){b.click();e.preventDefault()}}
-  else if(/^[0-9]$/.test(e.key)){var sc=stage.querySelectorAll('.sc');if(sc.length){var q=Q[cur.id],v=+e.key;if(v>=q.lo&&v<=q.hi&&sc[v-q.lo]){sc[v-q.lo].click()}}}
+  else if(/^[0-9]$/.test(e.key)){var sc=stage.querySelectorAll('.sc');if(sc.length){var q=Q[cur.id],v=+e.key;if(q&&v>=q.lo&&v<=q.hi&&sc[v-q.lo])sc[v-q.lo].click()}}
 });
 
 /* ---------- envio ---------- */
 function confetti(){if(reduce)return;var b=$('bits');b.innerHTML='';for(var i=0;i<34;i++){var d=h('i',{class:'bit'});d.style.left='50%';d.style.top='42%';d.style.setProperty('--x',(Math.random()*90-45)+'vw');d.style.setProperty('--y',(Math.random()*80-50)+'vh');d.style.animationDelay=(Math.random()*.25)+'s';b.appendChild(d)}setTimeout(function(){b.innerHTML=''},2200)}
+function publico(){if(!track)return null;if(track==='f')return 'outras_faculdades';return ix('pub',A)===1?'cursinho':'ensino_medio'}
 function payload(reason){
-  var core=ix('int',A);
-  return {versao:CFG.VERSAO||'1.0',coletor:COLETOR,nucleo:core<0?null:core<=1,concluido:reason==='completo',encerramento:reason==='completo'?null:reason,duracao_s:t0?Math.round((Date.now()-t0)/1000):null,respostas:A};
+  var nucleo=track==='f'?true:(track==='e'?(function(){var c=ix('e_int',A);return c<0?null:c<=1})():null);
+  return {versao:CFG.VERSAO||'1.0',coletor:COLETOR,publico:publico(),nucleo:nucleo,concluido:reason==='completo',encerramento:reason==='completo'?null:reason,duracao_s:t0?Math.round((Date.now()-t0)/1000):null,respostas:A};
 }
 function send(body){
   if(DEMO){console.log('[DEMO] payload',JSON.stringify(body,null,1));window.__lastPayload=body;return Promise.resolve();}
-  return fetch(CFG.SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/'+(CFG.TABELA||'respostas_ensino_medio'),{method:'POST',headers:{'apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
+  return fetch(CFG.SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/'+(CFG.TABELA||'respostas_pesquisa'),{method:'POST',headers:{'apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)})
    .then(function(r){if(!r.ok)throw new Error('http '+r.status)});
 }
-var PEND='skjr_em_pend',DONE='skjr_em_done';
+var PEND='skjr_pd_pend',DONE='skjr_pd_done';
 function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
-function retryPending(){var p=lsGet(PEND);if(!p)return;try{send(JSON.parse(p)).then(function(){try{localStorage.removeItem(PEND)}catch(e){}})["catch"](function(){})}catch(e){}}
+function retryPending(){var p=lsGet(PEND);if(!p||DEMO)return;try{send(JSON.parse(p)).then(function(){try{localStorage.removeItem(PEND)}catch(e){}})["catch"](function(){})}catch(e){}}
 window.addEventListener('online',retryPending);
 var finishing=false;
 function finish(reason){
   if(finishing)return;finishing=true;token++;clearTimeout(tm);
-  bNext.hidden=true;bBack.hidden=true;kb.hidden=true;$('bar').style.width='100%';setRail('Perfil');
+  bNext.hidden=true;bBack.hidden=true;kb.hidden=true;$('bar').style.width='100%';
   var body=payload(reason);
-  stage.innerHTML='';var w=h('section',{class:'step end'},h('div',{class:'spin'}),h('p',{text:'Salvando as suas respostas…'}));stage.appendChild(w);
-  var ok=function(){showEnd(reason)};
-  send(body).then(function(){if(reason==='completo')lsSet(DONE,'1');ok()})["catch"](function(){lsSet(PEND,JSON.stringify(body));showEnd(reason,true)});
+  stage.innerHTML='';stage.appendChild(h('section',{class:'step end'},h('div',{class:'spin'}),h('p',{text:'Salvando as suas respostas…'})));
+  send(body).then(function(){if(reason==='completo')lsSet(DONE,'1');showEnd(reason)})["catch"](function(){lsSet(PEND,JSON.stringify(body));showEnd(reason,true)});
 }
 function showEnd(reason,saved){
-  var T={
-   completo:['Obrigada pela sua ajuda!','Suas respostas foram enviadas e vão ajudar a entender como estudantes escolhem a faculdade. Foi muito útil mesmo.'],
-   fora_do_publico:['Obrigada pelo seu tempo!','Esta pesquisa é para quem está no 3º ano do ensino médio ou no cursinho. Agradecemos o interesse.'],
+  var TX={
+   completo:['Obrigada pela sua ajuda!','Suas respostas foram enviadas e vão ajudar a entender como estudantes escolhem a faculdade de Direito. Foi muito útil mesmo.'],
+   fora_do_publico:['Obrigada pelo seu tempo!','Esta pesquisa é para quem está no 3º ano do ensino médio, no cursinho ou cursando Direito. Agradecemos o interesse.'],
    nao_pretende_direito:['Obrigada pelo seu tempo!','Esta pesquisa é focada em quem pretende cursar Direito. Agradecemos a sua resposta, ela também ajuda.'],
+   aluno_skema:['Obrigada pelo seu tempo!','Esta pesquisa é para estudantes de outras faculdades. Alunos da SKEMA recebem outra pesquisa, enviada pela própria SKEMA.'],
    sem_autorizacao:['Quase lá!','Para participar, peça autorização de um responsável ou da sua escola e depois volte a este link. Nenhum dado seu foi guardado.']};
-  var t=T[reason]||T.completo;stage.innerHTML='';
+  var t=TX[reason]||TX.completo;stage.innerHTML='';
   var seal=h('div',{class:'seal'},h('i'),h('i'));var sv=document.createElementNS('http://www.w3.org/2000/svg','svg');sv.setAttribute('viewBox','0 0 24 24');var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M5 12.5l4.2 4.2L19 7');sv.appendChild(p);seal.appendChild(sv);
   var w=h('section',{class:'step end'},seal,h('h1',{text:t[0]}),h('p',{text:t[1]}));
   if(saved)w.appendChild(h('p',{class:'fine',text:'Sem conexão no momento: guardamos as respostas neste aparelho e vamos reenviar automaticamente quando a internet voltar.',style:'margin-left:auto;margin-right:auto'}));
-  if(reason==='completo'||reason==='fora_do_publico'||reason==='nao_pretende_direito'){
+  if(reason!=='sem_autorizacao'){
     var link=location.origin+location.pathname+(COLETOR?'?c='+COLETOR:'');
-    var b=h('button',{type:'button',class:'btn pri'},'Enviar o link a um colega');b.addEventListener('click',function(){var d={title:'Pesquisa: como você escolhe sua faculdade?',text:'Pesquisa rápida e anônima para quem está no 3º ano ou no cursinho.',url:link};
+    var b=h('button',{type:'button',class:'btn pri'},'Enviar o link a um colega');
+    b.addEventListener('click',function(){var d={title:'Pesquisa: como você escolhe a faculdade de Direito?',text:'Pesquisa rápida e anônima para estudantes do 3º ano, do cursinho e de Direito.',url:link};
       if(navigator.share){navigator.share(d)["catch"](function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(link).then(function(){b.textContent='Link copiado!'})}});
-    w.appendChild(h('div',{class:'share'},h('b',{text:'Conhece alguém do 3º ano ou do cursinho?'}),h('span',{text:'Quanto mais estudantes responderem, mais fiel fica o retrato. Só envie a quem tem 18 anos ou mais, ou a quem tem autorização de um responsável.'}),b));
+    w.appendChild(h('div',{class:'share'},h('b',{text:'Conhece alguém que também pode participar?'}),h('span',{text:'Estudantes do 3º ano, do cursinho ou de Direito em outras faculdades. Só envie a quem tem 18 anos ou mais, ou a quem tem autorização de um responsável.'}),b));
   }
   stage.appendChild(w);if(reason==='completo')confetti();
 }
@@ -606,9 +637,9 @@ function showEnd(reason,saved){
     $('nav').hidden=true;return;
   }
   retryPending();
-  if(DEMO){var d=h('div',{class:'demo',text:'MODO TESTE · nada será enviado'});document.body.appendChild(d)}
-  go(STEPS[0]);
-  window.__dbg={A:A,go:function(id){go(STEPS.filter(function(s){return s.id===id})[0])},STEPS:STEPS,next:next};
+  if(DEMO)document.body.appendChild(h('div',{class:'demo',text:'MODO TESTE · nada será enviado'}));
+  go(mk('intro'));
+  window.__dbg={A:A,next:next};
 })();
 })();
 </script>
