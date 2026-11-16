@@ -38,7 +38,9 @@ create policy "anon_pode_inserir"
   with check (true);
 
 -- Resumo para acompanhar a coleta (só você enxerga, pelo painel do Supabase).
-create or replace view public.resumo_coletores
+drop view if exists public.resumo_coletores;
+
+create view public.resumo_coletores
 with (security_invoker = true) as
 select
   coalesce(coletor, '(sem coletor)')                                   as coletor,

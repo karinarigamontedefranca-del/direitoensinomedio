@@ -83,6 +83,9 @@ select respostas->>'flaw' as familiar_no_direito, respostas->>'fweight' as peso_
 from respostas_pesquisa where concluido group by 1,2 order by 1,3 desc;
 ```
 
+## Versão enxuta (cerca de 5 minutos)
+O formulário tem hoje 15 a 17 perguntas por trilha. Ensino médio e cursinho: `e_int, e_why_no, e_open, e_rank, e_fwho, e_fmost, e_fweight, e_flaw, e_top, e_aided, e_chan, e_sk, e_catt, e_m1, e_chance, e_faixa`. Faculdade: `f_ies, f_sem, f_open, f_rank, f_fwho, f_fmost, f_fweight, f_flaw, f_top, f_aided, f_price, f_disc, f_know, f_catt, f_m1, f_chance`. As demais perguntas do mapa abaixo continuam no PDF do questionário, mas não aparecem no site.
+
 ## Mapa de perguntas
 
 Chave `pub` = primeira pergunta (situação). As chaves começam com `e_` (ensino médio e cursinho) ou `f_` (faculdade de Direito).
