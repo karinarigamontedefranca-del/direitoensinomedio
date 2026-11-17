@@ -4,7 +4,7 @@
 window.PESQUISA_CONFIG = {
   SUPABASE_URL: "https://ngkmsropdqhqogcrjylb.supabase.co",
   SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5na21zcm9wZHFocW9nY3JqeWxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ0MDY4MzYsImV4cCI6MjEwOTk4MjgzNn0.3ZzEIvHyaDgFOBveuoEbIpW1OhSV8k60TcsStguR3yc",
-  TABELA: "respostas_ensino_medio",
+  TABELA: "respostas_pesquisa",
   VERSAO: "1.0",
 
   // Faculdades usadas na pergunta de lembrança de marca (a SKEMA aparece misturada, sem destaque).
